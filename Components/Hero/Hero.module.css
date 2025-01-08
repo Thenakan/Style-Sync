@@ -1,0 +1,53 @@
+/* Hero Section */
+.heroSection {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.heroSection {
+  position: relative;
+  height: 100vh;
+  background: url('../../public//assets/Hero.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.text {
+  color: #BC0404;
+}
+
+.heroSection .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay effect */
+  z-index: 1;
+}
+
+.heroSection .content {
+  position: relative;
+  z-index: 2;
+}
+
+.heroSection h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.heroSection p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: white;
+}

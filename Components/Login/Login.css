@@ -1,0 +1,94 @@
+/* Login */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+    padding: 20px;
+    background-image: url(../../public/assets/login.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Poppins', sans-serif; /* Corrected font-family declaration */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    background-color: #fff9; /* Simplified color code */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Added backdrop-filter for a frosted glass effect */
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #000; /* Ensures contrast */
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #000; /* Simplified color */
+    border-radius: 5px;
+    width: 100%;
+    outline: none; /* Adds focus clarity */
+}
+
+.login-container input:focus {
+    border-color: #444; /* Subtle focus indicator */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-container .password-field {
+    position: relative;
+}
+
+.login-container .eye-icon {
+    position: absolute;
+    right: 10px; /* Aligned consistently */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px; /* Ensures proper size */
+}
+
+.login-container button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #000; /* Consistent button color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #444; /* Subtle hover effect */
+}
+
+.login-container p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-container a {
+    color: #007BFF; /* Consistent blue shade */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container a:hover {
+    color: #0056b3; /* Subtle hover effect for link */
+}

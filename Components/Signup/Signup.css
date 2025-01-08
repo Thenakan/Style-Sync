@@ -1,0 +1,83 @@
+/* signup */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+    padding: 20px;
+    background-image: url(../../public/assets/signup.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    background-color:#fff9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px); /* Added backdrop-filter for a frosted glass effect */
+
+    
+}
+
+.signup-container h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: black;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup-container input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.signup-container .password-field {
+    position: relative;
+}
+
+.signup-container .eye-icon {
+    position: absolute;
+    right: 7px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.signup-container button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-container button:hover {
+    background-color: #444;
+}
+
+.signup-container p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: black;
+}
+
+.signup-container a {
+    color: blue;
+    text-decoration: none;
+}

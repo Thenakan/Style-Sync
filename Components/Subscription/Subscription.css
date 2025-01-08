@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+/* Add a class to the wrapper instead of applying styles directly to the body */
+.pricing-section-wrapper {
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('../../assets/subscription.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+}
+
+.pricing-section {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* .pricing-options and other classes remain the same */
+.pricing-options {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    perspective: 1000px;
+}
+
+.plan-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    color: black;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+.price-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    color: #b30000;
+}
+
+.plan-icon {
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
+    animation: pulse 2s infinite;
+}
+
+.token-count {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+button {
+    background: linear-gradient(135deg, #b30000, #800000);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #800000, #b30000);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(179, 0, 0, 0.3);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) rotate(35deg);
+    transition: transform 0.5s ease;
+}
+
+button:hover::after {
+    transform: translate(-50%, -50%) rotate(35deg) translateX(100%);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@media (max-width: 968px) {
+    .pricing-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .plan-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+}
