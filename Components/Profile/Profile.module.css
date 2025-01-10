@@ -1,0 +1,182 @@
+
+
+/* General reset for the body and html */
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Poppins';
+}
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.headerProfile {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    align-items: center;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.userTokens {
+    display: flex;
+    align-items: center;
+}
+
+.tokenSymbol {
+    margin-right: 8px;
+}
+
+.tokenQuantity {
+    font-size: 18px;
+}
+
+.contentProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.imageProfile img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #d32f2f;
+    object-fit: cover;
+}
+
+.infoProfile h1 {
+    font-size: 24px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.userEmail {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.buttonEdit,
+.buttonSave {
+    background-color: #d32f2f;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: all 0.5s ease-in-out; /* Smooth and fast transition */
+}
+
+/* Hover effects with intense animations */
+.buttonEdit:hover,
+.buttonSave:hover {
+    background-color: #b71c1c;
+    transform: scale(1.2) rotate(15deg); /* Larger scaling and rotation */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* More intense shadow for depth */
+    animation: glow 1.5s infinite alternate, pop 0.3s forwards; /* Glowing and popping animation */
+    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 45px #ff0000; /* Red glow effect */
+}
+
+/* Add click animation with bounce effect */
+.buttonEdit:active,
+.buttonSave:active {
+    transform: scale(0.95) rotate(-15deg); /* Shrink and rotate on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Smaller shadow on click */
+    animation: none; /* Stop glowing and popping on click */
+}
+
+/* Glowing effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    }
+    100% {
+        box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+        text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+    }
+}
+
+/* Popping animation */
+@keyframes pop {
+    0% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.formInputs {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.formGroup {
+    position: relative;
+    width: 100%;
+}
+
+.formGroup input {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #333;
+    border: 1px solid #d32f2f;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.formGroup input::placeholder {
+    color: #aaa;
+    font-size: 18px;
+    text-align: left;
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: #b71c1c;
+}
+
+.formGroup .editSymbol {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #d32f2f;
+    font-size: 24px;
+}
+
+.inputWrapper input {
+    padding-right: 40px;
+}

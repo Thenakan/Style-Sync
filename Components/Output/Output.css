@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: black;
+    font-family: 'Poppins';
+}
+.output-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    
+}
+
+.output-preview-section {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.output-main-preview {
+    flex: 1;
+    border: 3px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    
+}
+
+.output-main-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+
+.output-preview-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    
+}
+
+.output-preview-info h2 {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.output-thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.output-thumbnail {
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.output-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.output-action-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.output-download-btn, .output-try-another-btn {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.output-download-btn {
+    background-color: #cc0000;
+    color: white;
+}
+
+.output-try-another-btn {
+    background-color: #cc0000;
+    color: white;
+    padding: 0.8rem 3rem;
+}
+
+.output-download-btn:hover, .output-try-another-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .output-preview-section {
+        flex-direction: column;
+    }
+
+    .output-action-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Icons pulse animation */
+.icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Thumbnail hover effect */
+.output-thumbnail {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.output-thumbnail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(204, 0, 0, 0.3);
+}
+
+/* Main preview image zoom */
+.output-main-preview img {
+    transition: transform 0.5s ease;
+}
+
+.output-main-preview:hover img {
+    transform: scale(1.02);
+}
+
+/* Button animations */
+.output-download-btn, .output-try-another-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.output-download-btn::after, .output-try-another-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.output-download-btn:hover::after, .output-try-another-btn:hover::after {
+    left: 100%;
+}
+
+/* Page load animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.output-preview-section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.output-thumbnail {
+    animation: fadeIn 0.8s ease-out backwards;
+}
+
+.output-thumbnail:nth-child(1) { animation-delay: 0.1s; }
+.output-thumbnail:nth-child(2) { animation-delay: 0.2s; }
+.output-thumbnail:nth-child(3) { animation-delay: 0.3s; }
+.output-thumbnail:nth-child(4) { animation-delay: 0.4s; }

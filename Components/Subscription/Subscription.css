@@ -9,7 +9,7 @@
 .pricing-section-wrapper {
     min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('../../assets/subscription.png');
+        url('../../public//assets/subscription.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -25,7 +25,7 @@
     background: rgba(0, 0, 0, 0.3);
 }
 
-h1 {
+.Mainheading {
     text-align: center;
     font-size: 4rem;
     margin-bottom: 3rem;
@@ -46,7 +46,7 @@ h1 {
 }
 
 .plan-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: #fff9;
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
@@ -91,7 +91,7 @@ h1 {
     color: #444;
 }
 
-button {
+.button {
     background: linear-gradient(135deg, #b30000, #800000);
     color: white;
     border: none;
@@ -130,9 +130,17 @@ button:hover::after {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 @media (max-width: 968px) {

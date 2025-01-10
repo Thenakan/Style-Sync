@@ -1,16 +1,16 @@
 import Navbar from "../../../Components/Navbar/Navbar";
-import Contact from "../../../Components/Contact/Contact";
+import Tryon from "../../../Components/Tryon/Tryon";
+import  './style.css';
 import Styleline from "../../../Components/Styleline/Styleline";
-import './style.css'
 
-const ContactPage = () => {
+const TryonPage = () => {
   return (
     <div>
         <Navbar />
-        <Contact />
+        <Tryon />
         <Styleline />
     </div>
   );
 };
 
-export default ContactPage;
+export default TryonPage;

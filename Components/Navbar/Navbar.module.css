@@ -1,4 +1,7 @@
+
+
 .navbar {
+    font-family: 'Poppins';
     display: flex;
     justify-content: space-between;
     align-items: center;

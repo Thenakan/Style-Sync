@@ -1,7 +1,7 @@
 /* Footer */
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     color: #fff;
 }
 
@@ -73,6 +73,12 @@ body {
 .footerLinks a:hover {
     text-decoration: underline;
 }
+
+.footerContact{
+    margin-right: 50px;
+}
+
+
 
 .footerContact p {
     display: flex;

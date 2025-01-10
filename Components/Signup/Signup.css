@@ -9,7 +9,7 @@ main {
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
 }
 
 .signup-container {

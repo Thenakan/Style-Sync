@@ -1,23 +1,23 @@
 /* Global styles */
 body {
-   
-    font-family: 'Poppins';
+    /* font-family: 'Poppins'; */
+    background-color: black; /* Black background for the entire page */
+    color: white; /* White text for general readability */
 }
 
 .contact-container {
     min-height: 100vh;
-   
 }
 
 .contact-title {
     font-size: 4rem;
     margin-bottom: 2rem;
     color: white;
-    background-color: black;
+    text-align: center;
+    background-color: #BC0404;
 }
 
 .contact-description {
-    /* color: white; */
     font-size: 1.5rem;
     margin-bottom: 3rem;
     max-width: 48rem;
@@ -29,18 +29,22 @@ body {
 }
 
 .contact-details, .contact-message-form {
-    background-color: white;
+    background-color: black; /* Black background for the sections */
     padding: 2rem;
+    border-radius: 0.5rem;
+    color: white; /* White text inside the sections */
 }
 
 .heading {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: white;
 }
 
 .info {
     font-size: 2rem;
     font-weight: 4px;
+    color: white;
 }
 
 .contact-info-list {
@@ -54,39 +58,40 @@ body {
     margin-bottom: 1.5rem;
     font-size: large;
     font-weight: bold;
+    color: white;
 }
 
 .contact-icon {
     font-size: 1.5rem;
+    color: white;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    
+    margin-right: 100px;
 }
 
 .input-field, .textarea-field {
     width: 100%;
     padding: 1rem;
     border-radius: 1rem;
-    border-color: black;
+    border: 1px solid #BC0404;
+    background-color: black;
+    color: white; /* White text for input fields */
 }
-
-
 
 .submit-button {
     width: 100%;
     padding: 0.75rem;
-    background-color: #1a1a1a;
+    background-color: #BC0404;
     color: white;
     border: none;
     border-radius: 0.375rem;
     cursor: pointer;
     transition: background-color 0.2s;
 }
-
 
 @media (max-width: 768px) {
     .contact-layout {

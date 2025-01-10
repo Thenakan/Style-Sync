@@ -23,10 +23,10 @@ function Footer() {
         <div className={styles.footerLinks}>
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Hair Styles</a></li>
-            <li><a href="#">Support</a></li>
-            <li><a href="#">Upgrade</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="tryon">Hair Styles</a></li>
+            <li><a href="contact">Support</a></li>
+            <li><a href="subscription">Upgrade</a></li>
           </ul>
         </div>
 

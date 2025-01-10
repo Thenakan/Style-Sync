@@ -1,0 +1,172 @@
+body{
+    font-family: 'Poppins';
+}
+:root {
+    --primary-color: #535f7d;
+    --text-color: #ffffff;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.15);
+    --input-focus: rgba(255, 255, 255, 0.3);
+    --button-color: #4CAF50;
+    --button-hover: #45a049;
+    --card-bg: rgba(255, 255, 255, 0.07);
+}
+
+.pageWrapper {
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), black);
+    font-family: 'Poppins';
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.paymentWrapper {
+    width: 100%;
+    max-width: 800px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--input-border);
+}
+
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.totalLabel {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.priceAmount {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 500;
+}
+
+.inputGroup {
+    display: grid;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.inputRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.inputContainer {
+    position: relative;
+    width: 100%;
+    
+}
+
+.textInput {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.textInput::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.textInput:focus {
+    background-color: var(--input-focus);
+    border-color: var(--text-color);
+    outline: none;
+}
+
+.cardNumberContainer {
+    position: relative;
+    width: 100%;
+}
+
+.cardIcon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.cardNumberInput {
+    padding-left: 45px;
+}
+
+.cardLogos {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.cardLogo img {
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+}
+
+.submitPaymentButton {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 2rem;
+    background: var(--button-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submitPaymentButton:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.buttonOverlayEffect {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.submitPaymentButton:hover .buttonOverlayEffect {
+    transform: translateX(100%);
+}
+
+@media (max-width: 768px) {
+    .paymentWrapper {
+        padding: 1.5rem 1rem;
+    }
+    
+    .headerSection {
+        text-align: center;
+        justify-content: center;
+    }
+}

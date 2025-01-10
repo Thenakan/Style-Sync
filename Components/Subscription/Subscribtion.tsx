@@ -4,7 +4,7 @@ const Subscription: React.FC = () => {
   return (
     <div className="pricing-section-wrapper">
       <div className="pricing-section">
-        <h1>Our Pricing Plans</h1>
+        <h1 className="Mainheading">Our Pricing Plans</h1>
 
         <div className="pricing-options">
           <div className="plan-card">
@@ -12,7 +12,9 @@ const Subscription: React.FC = () => {
             <div className="price-value">LKR 500</div>
             <div className="plan-icon">⚡</div>
             <div className="token-count">50 Tokens</div>
-            <button>Select</button>
+            <a href="payment">
+              <button className='button'>Select</button>
+            </a>
           </div>
 
           <div className="plan-card">
@@ -20,7 +22,10 @@ const Subscription: React.FC = () => {
             <div className="price-value">LKR 800</div>
             <div className="plan-icon">⚡</div>
             <div className="token-count">100 Tokens</div>
-            <button>Select</button>
+            <a href="payment">
+              <button className='button'>Select</button>
+            </a>
+
           </div>
 
           <div className="plan-card">
@@ -28,7 +33,9 @@ const Subscription: React.FC = () => {
             <div className="price-value">LKR 1000</div>
             <div className="plan-icon">⚡</div>
             <div className="token-count">200 Tokens</div>
-            <button>Select</button>
+            <a href="payment">
+              <button className='button'>Select</button>
+            </a>
           </div>
         </div>
       </div>
