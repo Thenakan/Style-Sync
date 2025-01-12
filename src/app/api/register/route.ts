@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import dbConnect from '../../../../lib/db';
-import userModel from '../models/UserRegister'; // Adjust path as needed
+import userModel from '../models/UserRegister';
+
+// Load environment variables
+const JWT_SECRET = process.env.JWT_SECRET || 'default_secret_key';
 
 // Route for user registration
 export async function POST(req: NextRequest) {
@@ -31,8 +35,18 @@ export async function POST(req: NextRequest) {
     // Save the new user to the database
     await newUser.save();
 
-    // Send success response
-    return NextResponse.json({ message: 'User registered successfully' }, { status: 201 });
+    // Generate a JWT token
+    const token = jwt.sign(
+      { id: newUser._id, email: newUser.email },
+      JWT_SECRET,
+      { expiresIn: '1h' } // Token expiration (1 hour)
+    );
+
+    // Send success response with the token
+    return NextResponse.json(
+      { message: 'User registered successfully', token },
+      { status: 201 }
+    );
   } catch (error) {
     // Handle errors
     console.error(error);
