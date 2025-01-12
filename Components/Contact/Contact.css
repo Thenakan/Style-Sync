@@ -81,7 +81,6 @@ body {
     background-color: black;
     color: white; /* White text for input fields */
 }
-
 .submit-button {
     width: 100%;
     padding: 0.75rem;
@@ -91,7 +90,28 @@ body {
     border-radius: 0.375rem;
     cursor: pointer;
     transition: background-color 0.2s;
+    box-shadow: 0 0 5px rgba(188, 4, 4, 0.6); /* Subtle initial glow */
 }
+
+/* Glowing effect with pulsating animation */
+.submit-button:hover {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(188, 4, 4, 0.6), 0 0 20px 10px rgba(188, 4, 4, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 20px 10px rgba(188, 4, 4, 0.8), 0 0 30px 15px rgba(188, 4, 4, 0.6);
+    }
+}
+
+.submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 15px 10px rgba(188, 4, 4, 0.7); /* Brighter, focused glow */
+}
+
 
 @media (max-width: 768px) {
     .contact-layout {

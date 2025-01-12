@@ -12,6 +12,9 @@ const Hero = () => {
           Find Your <span className={styles.text}><TypedText /></span>
         </h1>
         <p>Discover your perfect hairstyle with StyleSync—the ultimate AI-powered solution for hairstyling.</p>
+        <div className={styles.container}>
+          <button className={styles.glowingButton}>Try Your Style</button>
+        </div>
       </div>
     </div>
   );

@@ -1,39 +1,68 @@
-body{
-    font-family: 'Poppins';
+body {
+    font-family: 'Poppins', sans-serif;
 }
 :root {
-    --primary-color: #535f7d;
+    --primary-color: #8B0000;
     --text-color: #ffffff;
-    --input-bg: rgba(255, 255, 255, 0.1);
+    --input-bg: rgba(0, 0, 0, 0.1);
     --input-border: rgba(255, 255, 255, 0.15);
-    --input-focus: rgba(255, 255, 255, 0.3);
-    --button-color: #4CAF50;
-    --button-hover: #45a049;
-    --card-bg: rgba(255, 255, 255, 0.07);
+    --input-focus: rgba(0, 0, 0, 0.3);
+    --button-color: #FF0000;
+    --button-hover: #CC0000;
+    --card-bg: rgba(0, 0, 0, 0.07);
+    --hover-scale: 1.05;
+    --transition-duration: 0.3s;
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .pageWrapper {
     min-height: 100vh;
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, var(--primary-color), black);
-    font-family: 'Poppins';
+    background: black;
     color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    animation: fadeIn var(--transition-duration) ease-in;
 }
 
 .paymentWrapper {
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
     background: var(--card-bg);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: clamp(1.5rem, 5vw, 3rem);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow);
     border: 1px solid var(--input-border);
+    transition: transform var(--transition-duration), box-shadow var(--transition-duration);
+}
+
+.paymentWrapper:hover {
+    transform: scale(var(--hover-scale));
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .headerSection {
@@ -43,6 +72,7 @@ body{
     gap: 1rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
+    animation: fadeIn var(--transition-duration) ease-in-out;
 }
 
 .totalLabel {
@@ -50,6 +80,7 @@ body{
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    animation: pulse 2s infinite;
 }
 
 .priceAmount {
@@ -61,6 +92,7 @@ body{
     display: grid;
     gap: 1.5rem;
     width: 100%;
+    animation: fadeIn var(--transition-duration) ease-in-out;
 }
 
 .inputRow {
@@ -72,7 +104,6 @@ body{
 .inputContainer {
     position: relative;
     width: 100%;
-    
 }
 
 .textInput {
@@ -83,7 +114,7 @@ body{
     border-radius: 10px;
     color: var(--text-color);
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all var(--transition-duration) ease;
     box-sizing: border-box;
 }
 
@@ -95,6 +126,7 @@ body{
     background-color: var(--input-focus);
     border-color: var(--text-color);
     outline: none;
+    box-shadow: 0 0 5px var(--text-color);
 }
 
 .cardNumberContainer {
@@ -126,6 +158,11 @@ body{
     width: 40px;
     height: auto;
     object-fit: contain;
+    transition: transform var(--transition-duration);
+}
+
+.cardLogo img:hover {
+    transform: scale(1.2);
 }
 
 .submitPaymentButton {
@@ -140,12 +177,18 @@ body{
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-duration) ease;
+    overflow: hidden;
 }
 
 .submitPaymentButton:hover {
     background-color: var(--button-hover);
     transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.submitPaymentButton:hover .buttonOverlayEffect {
+    transform: translateX(100%);
 }
 
 .buttonOverlayEffect {
@@ -154,10 +197,6 @@ body{
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     transform: translateX(-100%);
     transition: transform 0.5s ease;
-}
-
-.submitPaymentButton:hover .buttonOverlayEffect {
-    transform: translateX(100%);
 }
 
 @media (max-width: 768px) {
