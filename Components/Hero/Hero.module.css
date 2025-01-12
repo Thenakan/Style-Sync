@@ -7,7 +7,7 @@
 
 body, html {
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
 }
 
 .heroSection {
@@ -41,51 +41,51 @@ body, html {
 }
 
 .heroSection h1 {
-  font-size: 2.5rem;
+  font-size:3rem;
   margin-bottom: 1rem;
 }
 
 .heroSection p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   max-width: 600px;
   margin: 0 auto;
   color: white;
 }
 
-
-
 .glowingButton {
   margin-top: 5rem;
   padding: 15px 30px;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
-  background-color: black;
-  border: 2px solid red;
-  border-radius: 10px;
+  background-color: #000; /* Dark gray background for a modern look */
+  border: 2px solid #BC0404; /* Red border for contrast */
+  border-radius: 50px; /* Modern rounded corners */
   cursor: pointer;
   outline: none;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
-  transition: 0.3s;
-  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 20px rgba(188, 4, 4, 0.6), 0 0 40px rgba(188, 4, 4, 0.5); /* Soft glowing red shadows */
+  transition: 0.3s ease-in-out, box-shadow 0.5s ease;
+  animation: pulseGlow 1.5s ease-in-out infinite; /* Smooth pulse effect */
 }
 
 .glowingButton:hover {
-  background-color: red;
-  color: black;
-  box-shadow: 0 0 40px red, 0 0 50px red, 0 0 60px red;
-  transform: translateY(15px); /* Moves the button further down */
+  background-color: #BC0404; /* Red background on hover */
+  color: white;
+  box-shadow: 0 0 60px rgba(188, 4, 4, 0.8), 0 0 100px rgba(188, 4, 4, 0.7), 0 0 150px rgba(188, 4, 4, 0.5); /* Strong glowing effect */
+  transform: translateY(-6px) scale(1.05); /* Button moves up and scales slightly for hover */
 }
 
-@keyframes pulse {
+@keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+    box-shadow: 0 0 20px rgba(188, 4, 4, 0.6), 0 0 40px rgba(188, 4, 4, 0.5);
   }
   50% {
-    box-shadow: 0 0 20px red, 0 0 30px red, 0 0 40px red;
+    box-shadow: 0 0 40px rgba(188, 4, 4, 0.8), 0 0 60px rgba(188, 4, 4, 0.6);
   }
   100% {
-    box-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px red;
+    box-shadow: 0 0 20px rgba(188, 4, 4, 0.6), 0 0 40px rgba(188, 4, 4, 0.5);
+    
   }
+  
 }

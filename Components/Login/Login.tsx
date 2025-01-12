@@ -14,7 +14,7 @@ const Login: React.FC = () => {
       <div className="login-container">
         <h1>Log In</h1>
         <form>
-          <input type="text" placeholder="User Name" required />
+          <input type="text" placeholder="UserName" required />
           <input type="email" placeholder="Email" required />
           <div className="password-field">
             <input
