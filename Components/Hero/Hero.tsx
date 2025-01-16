@@ -13,8 +13,11 @@ const Hero = () => {
         </h1>
         <p>Discover your perfect hairstyle with StyleSync—the ultimate AI-powered solution for hairstyling.</p>
         <div className={styles.container}>
-          <button className={styles.glowingButton}>Try Your Style</button>
+          <a href="tryon">
+            <button className={styles.glowingButton}>Try Your Style</button>
+          </a>
         </div>
+
       </div>
     </div>
   );

@@ -51,7 +51,6 @@ body, html {
   margin: 0 auto;
   color: white;
 }
-
 .glowingButton {
   margin-top: 5rem;
   padding: 15px 30px;
@@ -64,7 +63,7 @@ body, html {
   outline: none;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(188, 4, 4, 0.6), 0 0 40px rgba(188, 4, 4, 0.5); /* Soft glowing red shadows */
+  box-shadow: 0 0 30px rgba(188, 4, 4, 0.7), 0 0 60px rgba(188, 4, 4, 0.6), 0 0 90px rgba(188, 4, 4, 0.5); /* Enhanced glowing red shadows */
   transition: 0.3s ease-in-out, box-shadow 0.5s ease;
   animation: pulseGlow 1.5s ease-in-out infinite; /* Smooth pulse effect */
 }
@@ -72,20 +71,18 @@ body, html {
 .glowingButton:hover {
   background-color: #BC0404; /* Red background on hover */
   color: white;
-  box-shadow: 0 0 60px rgba(188, 4, 4, 0.8), 0 0 100px rgba(188, 4, 4, 0.7), 0 0 150px rgba(188, 4, 4, 0.5); /* Strong glowing effect */
-  transform: translateY(-6px) scale(1.05); /* Button moves up and scales slightly for hover */
+  box-shadow: 0 0 80px rgba(188, 4, 4, 0.9), 0 0 120px rgba(188, 4, 4, 0.8), 0 0 180px rgba(188, 4, 4, 0.7); /* Stronger glowing effect */
+  transform: translateY(-6px) scale(1.1); /* Button moves up and scales slightly more for hover */
 }
 
 @keyframes pulseGlow {
   0% {
-    box-shadow: 0 0 20px rgba(188, 4, 4, 0.6), 0 0 40px rgba(188, 4, 4, 0.5);
+    box-shadow: 0 0 30px rgba(188, 4, 4, 0.7), 0 0 60px rgba(188, 4, 4, 0.6);
   }
   50% {
-    box-shadow: 0 0 40px rgba(188, 4, 4, 0.8), 0 0 60px rgba(188, 4, 4, 0.6);
+    box-shadow: 0 0 60px rgba(188, 4, 4, 0.9), 0 0 90px rgba(188, 4, 4, 0.7);
   }
   100% {
-    box-shadow: 0 0 20px rgba(188, 4, 4, 0.6), 0 0 40px rgba(188, 4, 4, 0.5);
-    
+    box-shadow: 0 0 30px rgba(188, 4, 4, 0.7), 0 0 60px rgba(188, 4, 4, 0.6);
   }
-  
 }

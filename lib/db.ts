@@ -28,6 +28,7 @@ const dbConnect = async () => {
     console.log("MongoDB connection error:", error.message);
     throw new Error("MongoDB connection failed");
   }
+ 
 };
 
 export default dbConnect;

@@ -7,7 +7,7 @@ function Profile() {
     <div className={styles.profileContainer}>
       <div className={styles.headerProfile}>
         <div className={styles.userTokens}>
-          <span className={styles.tokenSymbol}>⚡</span>
+          <span className={styles.tokenSymbol}>✂</span>
           <span className={styles.tokenQuantity}>50Tokens</span>
         </div>
       </div>

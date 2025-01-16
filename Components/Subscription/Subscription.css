@@ -14,6 +14,7 @@
     background-position: center;
     background-attachment: fixed;
     color: white;
+    animation: fadeIn 1.5s ease-in-out, parallax 15s infinite linear;
 }
 
 .pricing-section {
@@ -23,6 +24,7 @@
     justify-content: center;
     padding: 2rem;
     background: rgba(0, 0, 0, 0.3);
+    animation: slideUp 1s ease-out, glowEffect 2s infinite alternate;
 }
 
 .Mainheading {
@@ -32,6 +34,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: 300;
     letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-in-out, textGlow 2s infinite alternate;
 }
 
 /* .pricing-options and other classes remain the same */
@@ -43,6 +46,7 @@
     margin: 0 auto;
     padding: 0 1rem;
     perspective: 1000px;
+    animation: fadeInUp 1s ease-out, slideUp 1s ease-out;
 }
 
 .plan-card {
@@ -55,12 +59,14 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, transform-origin 0.3s ease;
+    animation: bounceIn 1s ease-out, cardSlideUp 1s ease-out;
 }
 
 .plan-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.1); /* Removed rotation */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform-origin: center center;
 }
 
 .plan-card h2 {
@@ -70,6 +76,12 @@
     color: #1a1a1a;
     border-bottom: 2px solid #ddd;
     padding-bottom: 1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.plan-card:hover h2 {
+    color: #b30000;
+    transform: translateY(-5px);
 }
 
 .price-value {
@@ -77,18 +89,21 @@
     font-weight: bold;
     margin: 1.5rem 0;
     color: #b30000;
+    animation: fadeIn 1s ease-out, pulseEffect 1.5s infinite alternate;
 }
 
 .plan-icon {
     font-size: 2.5rem;
     margin: 1.5rem 0;
-    animation: pulse 2s infinite;
+    animation: pulse 2s infinite, fadeIn 1s ease-out;
 }
 
 .token-count {
     font-size: 1.6rem;
     margin-bottom: 2rem;
     color: #444;
+    opacity: 0;
+    animation: fadeInUp 1s 1.5s forwards, slideUp 1s ease-out;
 }
 
 .button {
@@ -105,12 +120,13 @@
     letter-spacing: 2px;
     position: relative;
     overflow: hidden;
+    animation: slideUp 1s ease-out;
 }
 
 button:hover {
     background: linear-gradient(135deg, #800000, #b30000);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(179, 0, 0, 0.3);
+    transform: translateY(-3px); /* Removed rotation */
+    box-shadow: 0 5px 25px rgba(179, 0, 0, 0.3);
 }
 
 button::after {
@@ -121,12 +137,12 @@ button::after {
     width: 300%;
     height: 300%;
     background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) rotate(35deg);
+    transform: translate(-50%, -50%); /* Removed rotation */
     transition: transform 0.5s ease;
 }
 
 button:hover::after {
-    transform: translate(-50%, -50%) rotate(35deg) translateX(100%);
+    transform: translate(-50%, -50%) translateX(100%); /* Removed rotation */
 }
 
 @keyframes pulse {
@@ -140,6 +156,115 @@ button:hover::after {
 
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes pulseEffect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(10px) scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    }
+}
+
+@keyframes glowEffect {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    }
+}
+
+@keyframes parallax {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 50% 50%;
     }
 }
 

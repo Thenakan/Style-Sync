@@ -16,7 +16,7 @@
 }
 
 .logo img {
-    width: 120px;
+    width: 200px;
 }
 
 .navLinks {
@@ -49,4 +49,5 @@
 .icons img {
     margin-left: 15px;
     cursor: pointer;
+    
 }

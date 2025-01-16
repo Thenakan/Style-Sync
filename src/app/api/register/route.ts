@@ -9,7 +9,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'default_secret_key';
 
 // Route for user registration
 export async function POST(req: NextRequest) {
-  const { firstName, lastName, email, password } = await req.json();
+  const { firstName, lastName, email, password, phoneNumber } = await req.json();
 
   try {
     // Connect to the database
@@ -21,6 +21,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: 'Email already exists' }, { status: 400 });
     }
 
+    // Check if the phone number already exists in the database
+    const existingPhoneNumber = await userModel.findOne({ phoneNumber });
+    if (existingPhoneNumber) {
+      return NextResponse.json({ message: 'Phone number already exists' }, { status: 400 });
+    }
+
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -30,6 +36,7 @@ export async function POST(req: NextRequest) {
       lastName,
       email,
       password: hashedPassword,
+      phoneNumber, // Add the phoneNumber here
     });
 
     // Save the new user to the database

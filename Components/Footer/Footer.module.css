@@ -2,7 +2,6 @@
 body {
     margin: 0;
     font-family: 'Poppins';
-    color: #fff;
 }
 
 .footer {
@@ -23,7 +22,6 @@ body {
 .footerBrand img {
     margin: 10px;
     width: 200px;
-    height: auto;
 }
 
 .socialIcons {

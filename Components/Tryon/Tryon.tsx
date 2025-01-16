@@ -36,10 +36,12 @@ const Tryon: React.FC = () => {
             <h2 className="tryon-h2">Upload Your Photo</h2>
             <div className="upload-box">
               <div className="image-icon">🖼️</div>
-              <button className="upload-btn">Choose an image</button>
+              <button className="upload-btn">Add image</button>
               <p className="upload-text">JPEG or PNG files accepted</p>
             </div>
-            <button className="try-on-btn">Try On</button>
+            <a href="output" className="try-on-link">
+  <button className="try-on-btn">Try On</button>
+</a>
           </div>
         </div>
       </div>
