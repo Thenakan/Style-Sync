@@ -1,5 +1,7 @@
 body {
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .tryon-wrapper {
@@ -8,54 +10,92 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    height: 100%;  /* Ensure wrapper fills the entire viewport height */
-    overflow: hidden;  /* Remove any scrolling */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    height: 100%; /* Ensure wrapper fills the viewport height */
 }
 
 .tryon-container {
     display: flex;
-    flex: 1;
+    flex-direction: row; /* Arrange sections side by side */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Align vertically */
     padding: 2rem 4rem;
     gap: 3rem;
-    height: 100%;  /* Ensure the container fills its parent */
+    max-width: 1200px; /* Limit maximum width for better centering */
+    width: 100%;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .image-section {
     flex: 2;
     display: flex;
+    flex-direction: column; /* Stack the main image and grid */
+    align-items: center; /* Center horizontally */
     gap: 2rem;
-    height: 100%;
+    height: auto;
+    max-width: 700px; /* Add responsive width */
+    width: 100%;
 }
 
 .main-image {
-    flex: 3;
-    width: 40vw;  /* Use responsive width */
-    height: auto;  /* Make sure the image scales proportionally */
+    width: 100%; /* Make responsive */
+    max-width: 400px; /* Limit the size for larger screens */
+    height: auto;
 }
 
 .image-placeholder {
     width: 100%;
-    height: 100%;
+    height: 400px; /* Fixed height for consistent appearance */
     background: linear-gradient(45deg, #2a2a2a, #333333);
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
-   
+    display: flex; /* Center the image content */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Crop overflowing content */
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Scale and crop */
 }
 
 .style-grid {
-    flex: 1;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr); /* Change from 2 to 4 */
     gap: 1rem;
-    height: 100%;
+    width: 100%;
+    max-width: 400px; /* Ensure grid does not exceed image section width */
 }
 
 .small-image {
     background: linear-gradient(45deg, #2a2a2a, #333333);
     border-radius: 8px;
-    aspect-ratio: 1;
+    aspect-ratio: 1; /* Keep square aspect ratio */
     border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.small-image.selected {
+    border: 3px solid #ff6347; /* Red border to show the selected style */
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.6); /* Optional: Glow effect */
+    transform: scale(1.1); /* Slightly enlarge the selected image */
+}
+
+.small-image:hover {
+    transform: scale(1.05); /* Enlarge slightly on hover */
+}
+
+.small-image img {
+    border-radius: 8px;
 }
 
 .control-section {
@@ -63,8 +103,14 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center the controls horizontally */
     gap: 2rem;
     max-width: 450px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .tryon-h1 {
@@ -85,19 +131,12 @@ body {
 }
 
 .upload-section {
+    width: 100%;
+    padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
-    padding: 2.5rem;
     border-radius: 12px;
-    flex-grow: 1;
-    max-height: 400px;
+    text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-}
-
-.tryon-h2 {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    color: #ffffff;
 }
 
 .upload-box {
@@ -105,8 +144,8 @@ body {
     padding: 3rem 2rem;
     border-radius: 12px;
     text-align: center;
-    margin-bottom: 2rem;
     border: 2px dashed rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
 }
 
 .image-icon {
@@ -126,50 +165,16 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
-    position: relative;
-    overflow: hidden;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .upload-btn:hover, .try-on-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     background: linear-gradient(45deg, #ff0055, #c20000);
-}
-
-.upload-btn::after, .try-on-btn::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: scale(0);
-    opacity: 0;
-    transition: transform 0.5s, opacity 0.5s;
-}
-
-.upload-btn:active::after, .try-on-btn:active::after {
-    transform: scale(1.5);
-    opacity: 1;
-    transition: transform 0.2s, opacity 0.2s;
 }
 
 .upload-text {
     color: #888;
     font-size: 0.9rem;
     margin: 0;
-}
-
-.try-on-btn {
-    width: 100%;
-    padding: 1.2rem;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
 }
