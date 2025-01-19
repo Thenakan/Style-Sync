@@ -1,34 +1,33 @@
-
-
-/* General reset for the body and html */
+/* Reset and Global Styles */
 body, html {
     height: 100%;
     margin: 0;
     background-color: black;
     color: white;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box; /* Universal box-sizing for consistency */
 }
 
+/* Profile Container */
 .profileContainer {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    background-color: black;
-    color: white;
     align-items: center;
     justify-content: flex-start;
-    padding: 0 20px;
-    box-sizing: border-box;
+    height: 100%;
+    padding: 20px;
+    background-color: black;
+    color: white;
 }
 
+/* Header Section */
 .headerProfile {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    width: 100%;
     align-items: center;
+    width: 100%;
     max-width: 1200px;
-    box-sizing: border-box;
+    padding: 20px;
 }
 
 .userTokens {
@@ -38,21 +37,23 @@ body, html {
 
 .tokenSymbol {
     margin-right: 8px;
+    font-size: 24px;
+    color: #d32f2f;
 }
 
 .tokenQuantity {
     font-size: 18px;
 }
 
+/* Profile Content */
 .contentProfile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    flex-grow: 1;
     width: 100%;
     max-width: 1200px;
-    box-sizing: border-box;
+    padding: 20px;
+    gap: 20px;
 }
 
 .imageProfile img {
@@ -63,19 +64,22 @@ body, html {
     object-fit: cover;
 }
 
+/* Profile Info */
+.infoProfile {
+    text-align: center;
+}
+
 .infoProfile h1 {
     font-size: 24px;
     margin: 20px 0;
-    text-align: center;
 }
 
 .userEmail {
     font-size: 18px;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-.buttonEdit,
+/* Buttons */
 .buttonSave {
     background-color: #d32f2f;
     color: white;
@@ -83,61 +87,29 @@ body, html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
     width: 100%;
     max-width: 250px;
-    margin-bottom: 20px;
-    position: relative;
-    transition: all 0.5s ease-in-out; /* Smooth and fast transition */
+    margin: 10px 0 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover effects with intense animations */
-.buttonEdit:hover,
+/* Hover and Active Effects */
 .buttonSave:hover {
     background-color: #b71c1c;
-    transform: scale(1.2) rotate(15deg); /* Larger scaling and rotation */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* More intense shadow for depth */
-    animation: glow 1.5s infinite alternate, pop 0.3s forwards; /* Glowing and popping animation */
-    text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 45px #ff0000; /* Red glow effect */
+    transform: scale(1.1);
 }
 
-/* Add click animation with bounce effect */
-.buttonEdit:active,
 .buttonSave:active {
-    transform: scale(0.95) rotate(-15deg); /* Shrink and rotate on click */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Smaller shadow on click */
-    animation: none; /* Stop glowing and popping on click */
+    transform: scale(0.95);
 }
 
-/* Glowing effect */
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
-        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
-    }
-    100% {
-        box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
-        text-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
-    }
-}
-
-/* Popping animation */
-@keyframes pop {
-    0% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
+/* Form Section */
 .formInputs {
     width: 100%;
     max-width: 500px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 30px;
 }
 
 .formGroup {
@@ -145,6 +117,7 @@ body, html {
     width: 100%;
 }
 
+/* Input Fields */
 .formGroup input {
     width: 100%;
     padding: 15px 20px;
@@ -153,14 +126,12 @@ body, html {
     border-radius: 10px;
     color: white;
     font-size: 18px;
-    box-sizing: border-box;
     transition: border-color 0.3s ease-in-out;
+    padding-right: 50px; /* Added space for the edit icon */
 }
 
 .formGroup input::placeholder {
     color: #aaa;
-    font-size: 18px;
-    text-align: left;
 }
 
 .formGroup input:focus {
@@ -168,17 +139,18 @@ body, html {
     border-color: #b71c1c;
 }
 
-.formGroup .editSymbol {
+/* Edit Symbol */
+.editSymbol {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 20px; /* Adjusted for proper alignment */
     transform: translateY(-50%);
     color: #d32f2f;
     font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
-.inputWrapper input {
-    padding-right: 40px;
+.editSymbol:hover {
+    color: #b71c1c;
 }
-
-

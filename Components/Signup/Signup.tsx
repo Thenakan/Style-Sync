@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRouter } from 'next/router'; // Import useRouter from Next.js
+import { useRouter } from 'next/router';
 import './Signup.css';
 
 const Signup: React.FC = () => {
@@ -10,31 +10,31 @@ const Signup: React.FC = () => {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const router = useRouter(); // Use router for redirection
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+  
     // Reset messages
     setErrorMessage('');
     setSuccessMessage('');
-
+  
     const data = { firstName, lastName, email, phoneNumber, password };
-
+  
     try {
-      const response = await fetch('/api/register', { 
+      const response = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
-
+  
       const result = await response.json();
-
+  
       if (response.ok) {
         setSuccessMessage(result.message);
-        
-        // Redirect to profile page with user data
-        localStorage.setItem('Profile', JSON.stringify(data)); // Store user data in localStorage
+  
+        // Redirect to profile page after successful signup
+        localStorage.setItem('user', JSON.stringify(data)); // Store user data in localStorage
         router.push('/Profile'); // Redirect to profile page
       } else {
         setErrorMessage(result.message);
@@ -43,6 +43,7 @@ const Signup: React.FC = () => {
       setErrorMessage('Something went wrong. Please try again.');
     }
   };
+  
 
   return (
     <main>
@@ -92,7 +93,7 @@ const Signup: React.FC = () => {
         {errorMessage && <p className="error">{errorMessage}</p>}
         {successMessage && <p className="success">{successMessage}</p>}
         <p>
-          Already have an account? <a href="login">Log In</a>
+          Already have an account? <a href="/login">Log In</a>
         </p>
       </div>
     </main>
