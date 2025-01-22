@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { toast, ToastContainer } from 'react-toastify';  // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css';  // Import styles for Toastify
 import styles from './Payment.module.css';
 import visa from '../../public/assets/visa.png';
 import master from '../../public/assets/master.png';
@@ -15,6 +17,7 @@ const Payment: React.FC = () => {
   const [expiry, setExpiry] = useState<string>(''); // State for expiry date
   const [cvv, setCvv] = useState<string>(''); // State for CVV
   const [cvvError, setCvvError] = useState<string>(''); // State for CVV error message
+  const [loading, setLoading] = useState<boolean>(false); // Loading state for form submission
 
   const detectCardType = (cardNumber: string) => {
     const visaPattern = /^4/;
@@ -75,6 +78,49 @@ const Payment: React.FC = () => {
 
   const planName = typeof plan === 'string' ? plan : 'Unknown Plan';
   const priceAmount = typeof price === 'string' ? parseInt(price, 10) : 0;
+
+  // Function to handle payment submission
+  const handlePaymentSubmit = async () => {
+    // Check if any required field is empty
+    if (!cardNumber || !expiry || !cvv || cvvError) {
+      toast.error('Please fill in all fields correctly before submitting.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Send payment details to your backend
+      const response = await fetch('/api/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          paymentMethodId: 'pm_card_visa', // Replace with the actual payment method ID
+          plan: planName,
+          price: priceAmount.toString(),
+          returnUrl: 'http://localhost:3000/return', // Replace with the actual return URL
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Payment succeeded
+        console.log('Payment successful:', data.paymentIntentId);
+        toast.success('Payment was successful! Thank you for your purchase.');
+      } else {
+        // Payment failed
+        toast.error(data.error || 'Payment failed, please try again.');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      toast.error('An error occurred while processing your payment.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className={styles.pageWrapper}>
@@ -168,14 +214,21 @@ const Payment: React.FC = () => {
             </div>
           </div>
 
-          <button className={styles.submitPaymentButton} disabled={cvvError !== ''}>
-            <span>Submit Payment</span>
+          <button
+            className={styles.submitPaymentButton}
+            onClick={handlePaymentSubmit}
+            disabled={loading || cvvError !== ''}
+          >
+            {loading ? 'Processing...' : 'Submit Payment'}
             <div className={styles.buttonOverlayEffect}></div>
           </button>
         </div>
       </div>
+
+      {/* ToastContainer is required to display the toast notifications */}
+      <ToastContainer />
     </div>
   );
 };
 
-export default Payment;  
+export default Payment;

@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^3.1.1",
+    "@stripe/stripe-js": "^5.5.0",
     "@types/bcrypt": "^5.0.2",
     "@types/formidable": "^3.4.5",
     "arg": "^5.0.2",
+    "axios": "^1.7.9",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "formidable": "^3.5.2",
     "jsonwebtoken": "^9.0.2",
@@ -24,6 +28,7 @@
     "react-dom": "^19.0.0",
     "react-toastify": "^11.0.2",
     "stripe": "^17.5.0",
+    "styled-components": "^6.1.14",
     "typed.js": "^2.1.0"
   },
   "devDependencies": {
@@ -33,9 +38,13 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^20.17.14",
+    "@types/node-fetch": "^2.6.12",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19.0.7",
     "@types/react-dom": "^19",
+    "@types/stripe": "^8.0.416",
+    "@types/stripe-v3": "^3.1.33",
+    "@types/styled-components": "^5.1.34",
     "@types/typed.js": "^2.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.3",

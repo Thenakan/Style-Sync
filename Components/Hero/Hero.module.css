@@ -13,12 +13,15 @@ body, html {
 .heroSection {
   position: relative;
   height: 100vh;
-  background: url('../../public//assets/Hero.jpg') no-repeat center center/cover;
+  background-image: url('../../public/assets/Hero.jpg'); /* Initial background image */
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
+  animation: switchBackground 10s ease-in-out infinite; /* Animation to switch between images */
 }
 
 .text {
@@ -41,7 +44,7 @@ body, html {
 }
 
 .heroSection h1 {
-  font-size:3rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
@@ -51,6 +54,7 @@ body, html {
   margin: 0 auto;
   color: white;
 }
+
 .glowingButton {
   margin-top: 5rem;
   padding: 15px 30px;
@@ -84,5 +88,18 @@ body, html {
   }
   100% {
     box-shadow: 0 0 30px rgba(188, 4, 4, 0.7), 0 0 60px rgba(188, 4, 4, 0.6);
+  }
+}
+
+/* Animation to switch between two background images */
+@keyframes switchBackground {
+  0% {
+    background-image: url('../../public/assets/Hero.jpg');
+  }
+  50% {
+    background-image: url('../../public/assets/hero3.jpg');
+  }
+  100% {
+    background-image: url('../../public/assets/hero2.jpg');
   }
 }
