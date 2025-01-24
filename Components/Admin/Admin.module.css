@@ -1,0 +1,208 @@
+/* Global Font Import */
+.adminDashboardContainer {
+  font-family: 'Poppins'; /* Use Poppins for the entire dashboard */
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure full screen height */
+  width: 100vw;  /* Ensure full screen width */
+  padding: 0;
+  margin: 0;
+  overflow: hidden; /* Prevent overflow scrolling */
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
+}
+
+.pageTitle {
+  text-align: center;
+  font-size: 3rem;
+  margin: 30px 0;
+  font-weight: 700; /* Bold weight for the title */
+  opacity: 0;
+  animation: fadeIn 1.5s forwards 0.5s; /* Longer fade-in animation */
+}
+
+.titleRed {
+  color: #BC0404; /* Red color for STYLE SYNC */
+}
+
+.titleWhite {
+  color: #fff; /* White color for Admin Dashboard */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fullScreenLayout {
+  display: flex;
+  flex: 1; /* Take full remaining space */
+  height: 100%; /* Fill the entire height */
+  gap: 40px;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent overflow */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.overviewSection {
+  flex: 1;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto; /* Allow scrolling within this section */
+  transform: translateY(-20px);
+  animation: slideIn 1s forwards; /* Slower slide-in animation */
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.overviewTitle {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #ffff;
+  font-weight: 600; /* Medium weight for section titles */
+  opacity: 0;
+  animation: fadeIn 1.5s forwards 1s; /* Delayed fade-in */
+}
+
+.overviewStats {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.statCard {
+  padding: 25px;
+  border: 1px solid #333; /* Changed border to a dark color for subtlety */
+  border-radius: 12px;
+  background-color: #000;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth scaling effect */
+  animation: fadeInUp 1s forwards 1s; /* Animation for each card */
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.statCard:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  background-color: #2b2b2b; /* Darker background on hover */
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 700; /* Bold weight for stats */
+  color: #ffff;
+}
+
+.statLabel {
+  font-size: 1.2rem;
+  font-weight: 400; /* Regular weight for labels */
+  color: #fff;
+}
+
+.userManagementSection {
+  flex: 2; /* Allocate more space to this section */
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto; /* Allow scrolling within this section */
+  opacity: 0;
+  animation: fadeIn 1.5s forwards 2s; /* Fade-in animation with delay */
+}
+
+.userManagementTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  animation: fadeInUp 1s forwards 2s; /* Fade-in table */
+}
+
+.tableHeader {
+  background-color: #333; /* Darker background for table headers */
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600; /* Medium weight for headers */
+  transition: background-color 0.3s ease;
+}
+
+.tableHeader:hover {
+  background-color: #BC0404; /* Red on hover */
+}
+
+.tableData {
+  padding: 15px;
+  border: 1px solid #333; /* Darker border color for data cells */
+  font-size: 1.1rem;
+  font-weight: 400; /* Regular weight for data cells */
+  color: #fff;
+  background-color: #000;
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+}
+
+.tableData:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  background-color: #333; /* Change background on hover */
+}
+
+.editButton,
+.deleteButton {
+  margin: 0 10px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600; /* Medium weight for buttons */
+  transition: transform 0.2s ease, background-color 0.3s ease; /* Button transition */
+}
+
+.editButton {
+  background-color: #BC0404;
+  color: #fff;
+}
+
+.deleteButton {
+  background-color: #000;
+  color: #BC0404;
+  border: 1px solid #BC0404;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  opacity: 0.9;
+  transform: scale(1.05); /* Slight zoom on hover */
+  background-color: #9f0303; /* Darker red on hover */
+}
+
+.editButton:active,
+.deleteButton:active {
+  transform: scale(0.98); /* Small shrink effect when pressed */
+}
