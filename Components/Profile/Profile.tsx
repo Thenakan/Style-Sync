@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import styles from './Profile.module.css';
-import profile from '../../public/assets/profile.jpg';
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import styles from "./Profile.module.css";
+import profile from "../../public/assets/profile.jpg";
 
 const Profile = () => {
   const router = useRouter();
   const [userData, setUserData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
+    _id: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
   });
   const [isEditing, setIsEditing] = useState({
     firstName: false,
@@ -23,21 +24,29 @@ const Profile = () => {
   const [isModified, setIsModified] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    
-    if (!user || user === 'undefined' || user === 'null') {
-      router.push('/login'); // Redirect to login if not authenticated or invalid data
+    const user = localStorage.getItem("user");
+
+    if (!user || user === "undefined" || user === "null") {
+      router.push("/login"); // Redirect to login if not authenticated or invalid data
     } else {
       try {
-        setUserData(JSON.parse(user)); // Load user data from localStorage
+        const parsedUser = JSON.parse(user);
+
+        if (!parsedUser._id) {
+          console.warn("User ID is missing. Redirecting to login.");
+          localStorage.removeItem("user"); // Clear corrupted data
+          router.push("/login");
+          return;
+        }
+
+        setUserData(parsedUser);
       } catch (error) {
         console.error("Error parsing user data:", error);
-        router.push('/login'); // Redirect to login if parsing fails
+        localStorage.removeItem("user"); // Clear corrupted data
+        router.push("/login");
       }
     }
   }, [router]);
-  
-  
 
   const handleEditClick = (field: string) => {
     setIsEditing((prevState) => ({
@@ -54,30 +63,61 @@ const Profile = () => {
     setIsModified(true);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (isModified) {
-      localStorage.setItem('user', JSON.stringify(userData)); // Save updated profile data
-      toast.success('Profile saved successfully!', {
-        position: 'top-center',
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: 'dark',
-      });
-      setIsModified(false);
+      try {
+        const response = await fetch(`/api/CRUD?id=${userData._id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+
+        if (!response.ok) {
+          const { error } = await response.json();
+          throw new Error(error || "Failed to update user.");
+        }
+
+        const updatedUser = await response.json();
+        localStorage.setItem("user", JSON.stringify(updatedUser.updatedUser)); // Save updated data
+        setUserData(updatedUser.updatedUser);
+
+        toast.success("Profile updated successfully!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } catch (error: any) {
+        console.error("Error updating profile:", error.message);
+        toast.error(`Error: ${error.message}`, {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } finally {
+        setIsModified(false);
+      }
     } else {
-      toast.info('No changes were made.', {
-        position: 'top-center',
+      toast.info("No changes were made.", {
+        position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'dark',
+        theme: "dark",
       });
     }
 
@@ -89,6 +129,11 @@ const Profile = () => {
     });
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user"); // Clear user data from localStorage
+    router.push("/login"); // Redirect to login page
+  };
+
   return (
     <div className={styles.profileContainer}>
       <ToastContainer />
@@ -97,6 +142,9 @@ const Profile = () => {
           <span className={styles.tokenSymbol}>✂</span>
           <span className={styles.tokenQuantity}>50Tokens</span>
         </div>
+        <button className={styles.logoutButton} onClick={handleLogout}>
+          Logout
+        </button>
       </div>
 
       <div className={styles.contentProfile}>
@@ -106,14 +154,14 @@ const Profile = () => {
 
         <div className={styles.infoProfile}>
           <h1>Profile Information</h1>
-          <p className={styles.userEmail}>{userData.email || 'No email available'}</p>
+          <p className={styles.userEmail}>{userData.email || "No email available"}</p>
         </div>
 
         <div className={styles.formInputs}>
-          {['firstName', 'lastName', 'email', 'phoneNumber'].map((field) => (
+          {["firstName", "lastName", "email", "phoneNumber"].map((field) => (
             <div key={field} className={styles.formGroup}>
               <input
-                type={field === 'email' ? 'email' : field === 'phoneNumber' ? 'tel' : 'text'}
+                type={field === "email" ? "email" : field === "phoneNumber" ? "tel" : "text"}
                 placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
                 value={userData[field as keyof typeof userData]}
                 onChange={(e) => handleChange(e, field)}
