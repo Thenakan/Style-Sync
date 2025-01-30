@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Login.css';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
@@ -16,9 +16,6 @@ const Login: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    setErrorMessage('');
-    setSuccessMessage('');
 
     const data = { email, password };
 
@@ -32,16 +29,16 @@ const Login: React.FC = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setSuccessMessage(result.message);
+        toast.success(result.message);
 
         // Store user data in localStorage and redirect to Profile page
-        localStorage.setItem('user', JSON.stringify(result.user)); // Store user data
-        router.push('/Profile'); // Redirect to profile page
+        localStorage.setItem('user', JSON.stringify(result.user));
+        router.push('/Profile');
       } else {
-        setErrorMessage(result.message);
+        toast.error(result.message);
       }
     } catch (error: any) {
-      setErrorMessage('Something went wrong. Please try again.');
+      toast.error('Something went wrong. Please try again.');
     }
   };
 
@@ -74,8 +71,6 @@ const Login: React.FC = () => {
           </div>
           <button type="submit">Log In</button>
         </form>
-        {errorMessage && <p className="error">{errorMessage}</p>}
-        {successMessage && <p className="success">{successMessage}</p>}
         <p>
           <a href="/forgot-password">Forgot Password?</a>
         </p>

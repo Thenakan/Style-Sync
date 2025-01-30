@@ -1,5 +1,4 @@
-// pages/tryon.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import './Tryon.css';
@@ -8,6 +7,20 @@ const Tryon: React.FC = () => {
   const router = useRouter();
   const [mainImage, setMainImage] = useState<string | null>(null);
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const user = localStorage.getItem('user'); // Check if user is logged in
+    if (!user) {
+      router.push('/login'); // Redirect to login if not authenticated
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  if (!isAuthenticated) {
+    return null; // Prevent rendering until authentication check completes
+  }
 
   // Handle image upload
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,23 +28,20 @@ const Tryon: React.FC = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setMainImage(reader.result as string); // Update the main image with the uploaded file
+        setMainImage(reader.result as string);
       };
       reader.readAsDataURL(file);
     }
   };
 
-  // Trigger the hidden file input when "Add image" button is clicked
   const handleButtonClick = () => {
     document.getElementById('imageUploadInput')?.click();
   };
 
-  // Handle style selection
   const handleStyleSelect = (style: string) => {
-    setSelectedStyle(style);  // Store the selected style
+    setSelectedStyle(style);
   };
 
-  // Handle try-on button click
   const handleTryOnClick = () => {
     if (selectedStyle) {
       router.push({
@@ -65,7 +75,6 @@ const Tryon: React.FC = () => {
           </div>
 
           <div className="style-grid">
-            {/* Render 4 small example image spaces in a grid */}
             {['style1', 'style2', 'style3', 'style4'].map((style, index) => (
               <div
                 key={index}
@@ -73,7 +82,7 @@ const Tryon: React.FC = () => {
                 onClick={() => handleStyleSelect(style)}
               >
                 <Image 
-                  src={`/assets/${style}.jpg`} // Assuming these are your styles
+                  src={`/assets/${style}.jpg`}
                   alt={`Style ${index + 1}`}
                   width={150}
                   height={150}
@@ -98,7 +107,7 @@ const Tryon: React.FC = () => {
                 type="file"
                 accept="image/jpeg, image/png"
                 onChange={handleImageUpload}
-                style={{ display: 'none' }} // Hidden input
+                style={{ display: 'none' }}
               />
               <button className="upload-btn" onClick={handleButtonClick}>
                 Add image

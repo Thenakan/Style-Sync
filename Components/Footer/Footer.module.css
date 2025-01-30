@@ -65,7 +65,7 @@ body {
 
 .footerLinks h3:hover,
 .footerContact h3:hover {
-    color: #FF5757;
+    color: #BC0404;
 }
 
 .footerLinks ul {
@@ -93,7 +93,7 @@ body {
 
 .footerLinks a:hover {
     text-decoration: underline;
-    color: #FF5757;
+    color: #BC0404;
 }
 
 .footerContact {

@@ -4,9 +4,6 @@ import Image from 'next/image';
 import { toast, ToastContainer } from 'react-toastify';  // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css';  // Import styles for Toastify
 import styles from './Payment.module.css';
-import visa from '../../public/assets/visa.png';
-import master from '../../public/assets/master.png';
-import amex from '../../public/assets/amex.png';
 
 const Payment: React.FC = () => {
   const router = useRouter();
@@ -186,17 +183,17 @@ const Payment: React.FC = () => {
               <div className={styles.cardLogos}>
                 {cardType === 'visa' && (
                   <div className={styles.cardLogo}>
-                    <Image src={visa} alt="Visa" width={40} height={25} />
+                    <Image src="https://res.cloudinary.com/dcuarscor/image/upload/v1738229915/icons8-visa-48_1_ubvxmy.png"alt="Visa" width={40} height={25} />
                   </div>
                 )}
                 {cardType === 'master' && (
                   <div className={styles.cardLogo}>
-                    <Image src={master} alt="Mastercard" width={40} height={25} />
+                    <Image src="https://res.cloudinary.com/dcuarscor/image/upload/v1738229914/icons8-mastercard-48_gf1rjz.png" alt="Mastercard" width={40} height={25} />
                   </div>
                 )}
                 {cardType === 'amex' && (
                   <div className={styles.cardLogo}>
-                    <Image src={amex} alt="Amex" width={40} height={25} />
+                    <Image src="https://res.cloudinary.com/dcuarscor/image/upload/v1738229914/icons8-amex-48_sft0yi.png" alt="Amex" width={40} height={25} />
                   </div>
                 )}
               </div>

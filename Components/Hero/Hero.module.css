@@ -13,7 +13,7 @@ body, html {
 .heroSection {
   position: relative;
   height: 100vh;
-  background-image: url('../../public/assets/Hero.jpg'); /* Initial background image */
+  background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230496/Hero_gimy8s.jpg'); /* Initial background image */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -94,12 +94,12 @@ body, html {
 /* Animation to switch between two background images */
 @keyframes switchBackground {
   0% {
-    background-image: url('../../public/assets/Hero.jpg');
+    background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230496/Hero_gimy8s.jpg');
   }
   50% {
-    background-image: url('../../public/assets/hero3.jpg');
+    background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230495/hero3_pikoe3.jpg');
   }
   100% {
-    background-image: url('../../public/assets/hero2.jpg');
+    background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230495/hero3_pikoe3.jpg');
   }
 }

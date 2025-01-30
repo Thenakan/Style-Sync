@@ -16,9 +16,10 @@ const Navbar = () => {
       </ul>
       <div className={styles.icons}>
         <a href="subscription">
-          <Image src="/assets/scissors.png" alt="Bolt Icon" width={50} height={50} />
+          <Image src="/assets/scissors.png" alt="scissors" width={50} height={50} />
+          
         </a>
-        <a href="signup">
+        <a href="Profile">
           <Image src="/assets/Navuser.png" alt="User Icon" width={50} height={50} />
         </a>
 

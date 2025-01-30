@@ -38,7 +38,7 @@ body, html {
 .tokenSymbol {
     margin-right: 8px;
     font-size: 24px;
-    color: #d32f2f;
+    color: #BC0404;
 }
 
 .tokenQuantity {
@@ -60,7 +60,7 @@ body, html {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #d32f2f;
+    border: 3px solid #BC0404;
     object-fit: cover;
 }
 
@@ -81,7 +81,7 @@ body, html {
 
 /* Buttons */
 .buttonSave {
-    background-color: #d32f2f;
+    background-color: #BC0404;
     color: white;
     padding: 15px 25px;
     border: none;
@@ -95,7 +95,7 @@ body, html {
 
 /* Hover and Active Effects */
 .buttonSave:hover {
-    background-color: #b71c1c;
+    background-color: #BC0404;
     transform: scale(1.1);
 }
 
@@ -122,7 +122,7 @@ body, html {
     width: 100%;
     padding: 15px 20px;
     background-color: #333;
-    border: 1px solid #d32f2f;
+    border: 1px solid #BC0404;
     border-radius: 10px;
     color: white;
     font-size: 18px;
@@ -136,7 +136,7 @@ body, html {
 
 .formGroup input:focus {
     outline: none;
-    border-color: #b71c1c;
+    border-color: #BC0404;
 }
 
 /* Edit Symbol */
@@ -154,3 +154,48 @@ body, html {
 .editSymbol:hover {
     color: #b71c1c;
 }
+
+/* Upload Button */
+.uploadButton {
+    background-color: #BC0404;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 10px; /* Adds space between the button and the profile picture */
+}
+
+.uploadButton:hover {
+    background-color: #BC0404;
+    transform: scale(1.1);
+}
+
+.uploadButton:active {
+    transform: scale(0.95);
+}
+
+
+.logoutButton {
+    background-color: #BC0404; /* Red background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Add some padding */
+    font-size: 16px; /* Set font size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+  }
+  
+  .logoutButton:hover {
+    background-color: #BC0404; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly enlarge the button on hover */
+  }
+  
+  .logoutButton:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Add a glowing effect on focus */
+  }
+  

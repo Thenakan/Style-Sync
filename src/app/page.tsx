@@ -8,10 +8,12 @@ import Footer from '../../Components/Footer/Footer';
 const Page = () => {
   return (
     <div>
+      
       <Navbar />
       <Hero />
       <About />
       <Footer />
+      
     </div>
   );
 };

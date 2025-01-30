@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Pie } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Progress } from "antd"; // For progress bars
-import { FaUsers, FaUserCheck, FaUserTimes } from 'react-icons/fa'; // Icons for stats
+import { FaUsers } from 'react-icons/fa'; // Icons for stats
 import { IoIosCut } from 'react-icons/io'; // Scissors icon
 import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
 import styles from "./Admin.module.css";
-
-ChartJS.register(ArcElement, Tooltip, Legend);
 
 interface User {
   _id: string;
@@ -78,23 +73,6 @@ const AdminDashboard = () => {
   if (loading) return <p>Loading users...</p>;
   if (error) return <p className={styles.error}>{error}</p>;
 
-  // Statistics for Pie chart and Progress Bar
-  const activeUsers = users.filter(user => user.isActive).length;
-  const inactiveUsers = users.length - activeUsers;
-  const activePercentage = (activeUsers / users.length) * 100;
-
-  // Pie Chart Data
-  const pieData = {
-    labels: ["Active", "Inactive"],
-    datasets: [
-      {
-        data: [activeUsers, inactiveUsers],
-        backgroundColor: ["#BC0404", "#333"], // Active in red, inactive in dark gray
-        hoverBackgroundColor: ["#9f0303", "#555"],
-      },
-    ],
-  };
-
   return (
     <div className={styles.adminDashboardContainer}>
       <h1 className={styles.pageTitle}>
@@ -115,37 +93,6 @@ const AdminDashboard = () => {
               <h3 className={styles.statValue}>{totalHairstyles}</h3>
               <p className={styles.statLabel}>Total Hairstyles</p>
             </div>
-            
-            <div className={styles.statCard}>
-              <FaUserTimes size={40} color="#F44336" />
-              <h3 className={styles.statValue}>{inactiveUsers}</h3>
-              <p className={styles.statLabel}>Inactive Users</p>
-            </div>
-          </div>
-
-          {/* Progress Bars */}
-          <div className={styles.progressBarContainer}>
-            <p className={styles.progressTitle}>User Engagement Progress</p>
-            <Progress
-              percent={activePercentage}
-              status="normal"
-              strokeColor="#BC0404"
-              showInfo={false}
-              className={styles.progressBar}
-            />
-            <p className={styles.progressTitle}>Hairstyle Requests Progress</p>
-            <Progress
-              percent={Math.min((totalHairstyles / 20) * 100, 100)} // Assuming goal is 20
-              status="normal"
-              strokeColor="#4CAF50"
-              showInfo={false}
-              className={styles.progressBar}
-            />
-          </div>
-
-          {/* Pie Chart */}
-          <div className={styles.chartContainer}>
-            <Pie data={pieData} options={{ responsive: true }} />
           </div>
         </section>
 

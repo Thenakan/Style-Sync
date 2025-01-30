@@ -134,6 +134,19 @@ const Profile = () => {
     router.push("/login"); // Redirect to login page
   };
 
+  const handleUploadImage = () => {
+    toast.info("Upload image functionality coming soon!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+  };
+
   return (
     <div className={styles.profileContainer}>
       <ToastContainer />
@@ -150,6 +163,9 @@ const Profile = () => {
       <div className={styles.contentProfile}>
         <div className={styles.imageProfile}>
           <Image src={profile} alt="Profile Image" width={150} height={150} />
+          <button className={styles.uploadButton} onClick={handleUploadImage}>
+            Upload Image
+          </button>
         </div>
 
         <div className={styles.infoProfile}>
