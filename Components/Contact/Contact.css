@@ -3,6 +3,7 @@ body {
     /* font-family: 'Poppins'; */
     background-color: black; /* Black background for the entire page */
     color: white; /* White text for general readability */
+    font-family: 'Poppins';
 }
 
 .contact-container {

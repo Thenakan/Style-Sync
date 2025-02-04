@@ -51,7 +51,7 @@ const Output = () => {
           <div className="output-thumbnail-grid">
             <div className="output-thumbnail">
               <Image
-                src="/assets/style1.jpg"
+                src="https://res.cloudinary.com/dcuarscor/image/upload/v1738298253/1_pgw4ds.webp"
                 alt="Style 1"
                 width={150}
                 height={150}
@@ -59,7 +59,7 @@ const Output = () => {
             </div>
             <div className="output-thumbnail">
               <Image
-                src="/assets/style2.jpg"
+                src="https://res.cloudinary.com/dcuarscor/image/upload/v1738297549/1_wlhva9.webp"
                 alt="Style 2"
                 width={150}
                 height={150}
@@ -67,7 +67,7 @@ const Output = () => {
             </div>
             <div className="output-thumbnail">
               <Image
-                src="/assets/style3.jpg"
+                src="https://res.cloudinary.com/dcuarscor/image/upload/v1738298065/3_htok6k.webp"
                 alt="Style 3"
                 width={150}
                 height={150}
@@ -75,7 +75,7 @@ const Output = () => {
             </div>
             <div className="output-thumbnail">
               <Image
-                src="/assets/style4.jpg"
+                src="https://res.cloudinary.com/dcuarscor/image/upload/v1738298146/4_qnfdw5.webp"
                 alt="Style 4"
                 width={150}
                 height={150}

@@ -38,8 +38,8 @@ const Tryon: React.FC = () => {
     document.getElementById('imageUploadInput')?.click();
   };
 
-  const handleStyleSelect = (style: string) => {
-    setSelectedStyle(style);
+  const handleStyleSelect = (styleUrl: string) => {
+    setSelectedStyle(styleUrl);
   };
 
   const handleTryOnClick = () => {
@@ -52,6 +52,17 @@ const Tryon: React.FC = () => {
       alert('Please select a hairstyle!');
     }
   };
+
+  // Cloudinary Base URL (Replace YOUR_CLOUD_NAME with your actual Cloudinary cloud name)
+  const cloudinaryBaseUrl = "https://res.cloudinary.com/dcuarscor/image/upload/";
+
+  // Cloudinary Style Image URLs
+  const styleImages = [
+    `https://res.cloudinary.com/dcuarscor/image/upload/v1738298253/1_pgw4ds.webp`,
+    `https://res.cloudinary.com/dcuarscor/image/upload/v1738297549/1_wlhva9.webp`,
+    `https://res.cloudinary.com/dcuarscor/image/upload/v1738298065/3_htok6k.webp`,
+    `https://res.cloudinary.com/dcuarscor/image/upload/v1738298146/4_qnfdw5.webp`,
+  ];
 
   return (
     <main className="tryon-wrapper">
@@ -75,18 +86,13 @@ const Tryon: React.FC = () => {
           </div>
 
           <div className="style-grid">
-            {['style1', 'style2', 'style3', 'style4'].map((style, index) => (
+            {styleImages.map((imageUrl, index) => (
               <div
                 key={index}
-                className={`small-image ${selectedStyle === style ? 'selected' : ''}`}
-                onClick={() => handleStyleSelect(style)}
+                className={`small-image ${selectedStyle === imageUrl ? 'selected' : ''}`}
+                onClick={() => handleStyleSelect(imageUrl)}
               >
-                <Image 
-                  src={`/assets/${style}.jpg`}
-                  alt={`Style ${index + 1}`}
-                  width={150}
-                  height={150}
-                />
+                <Image src={imageUrl} alt={`Style ${index + 1}`} width={150} height={150} />
               </div>
             ))}
           </div>

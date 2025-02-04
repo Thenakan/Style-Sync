@@ -5,7 +5,7 @@ section {
     align-items: center;
     height: calc(100vh - 60px);
     padding: 20px;
-    background-image: url(../../public/assets/login.jpg);
+    background-image: url(https://res.cloudinary.com/dcuarscor/image/upload/v1738296587/login_tt0rm0.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

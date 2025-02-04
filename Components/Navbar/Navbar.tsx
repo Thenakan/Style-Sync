@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <Image src="/assets/Weblogo.png" alt="logo" width={150} height={150} />
+        <Image src="https://res.cloudinary.com/dcuarscor/image/upload/v1738229173/Screenshot_from_2025-01-16_09-42-56_i6gqwk.png" alt="logo" width={150} height={150} />
       </div>
       <ul className={styles.navLinks}>
         <li><a href="/">Home</a></li>
