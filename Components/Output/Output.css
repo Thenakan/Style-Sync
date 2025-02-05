@@ -1,10 +1,16 @@
+
+
+/* Import Space Grotesk Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
     background-color: black;
-    font-family: 'Poppins';
+    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
+
 }
 .output-container {
     max-width: 1000px;

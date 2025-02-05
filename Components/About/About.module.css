@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 .aboutSection {
     background-color: black; /* Black background */
     color: white; /* White text for contrast */
@@ -7,7 +9,7 @@
     align-items: center; /* Center vertically */
     text-align: center; /* Center text content */
     padding: 20px; /* Padding for smaller screens */
-    font-family: 'Poppins'; /* Apply Poppins font */
+    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     font-size: 2rem; /* Set default font size */
     
     position: relative; /* Needed for the border animation */

@@ -1,6 +1,10 @@
+/* Import Space Grotesk Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 /* Global Font Import */
 .adminDashboardContainer {
-  font-family: 'Poppins'; /* Use Poppins for the entire dashboard */
+  font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
+
   display: flex;
   flex-direction: column;
   height: 100vh; /* Ensure full screen height */

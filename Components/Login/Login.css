@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 /* Login */
 section {
     display: flex;
@@ -9,7 +11,8 @@ section {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    font-family: 'Poppins', sans-serif; /* Corrected font-family declaration */
+    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
+
 }
 
 .login-container {

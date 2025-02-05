@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
 /* Reset and Global Styles */
 body, html {
     height: 100%;
     margin: 0;
     background-color: black;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     box-sizing: border-box; /* Universal box-sizing for consistency */
 }
 
