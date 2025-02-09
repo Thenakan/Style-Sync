@@ -154,11 +154,11 @@ body {
 .image-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
-    color: #ff3366;
+    color: #bc0404;
 }
 
 .upload-btn, .try-on-btn {
-    background: linear-gradient(45deg, #ff3366, #dc0000);
+    background: linear-gradient(45deg, #bc0404, #bc0404);
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -173,11 +173,15 @@ body {
 
 .upload-btn:hover, .try-on-btn:hover {
     transform: scale(1.05);
-    background: linear-gradient(45deg, #ff0055, #c20000);
+    background: linear-gradient(45deg, #bc0404, #bc0404);
 }
 
 .upload-text {
     color: #888;
     font-size: 0.9rem;
     margin: 0;
+}
+
+.Name{
+    color: #bc0404;
 }

@@ -6,7 +6,8 @@ interface IUser extends Document {
   lastName: string;
   email: string;
   password: string;
-  phoneNumber: string; // Add phoneNumber to the interface
+  phoneNumber: string;
+  role: string; // Add role field
 }
 
 const userSchema = new Schema<IUser>({
@@ -14,7 +15,8 @@ const userSchema = new Schema<IUser>({
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  phoneNumber: { type: String, required: true, unique: true } // Add phoneNumber to the schema
+  phoneNumber: { type: String, required: true, unique: true },
+  role: { type: String, enum: ["user", "admin"], default: "user" } // Default role is "user"
 }, { timestamps: true });
 
 const userModel = models.User || model<IUser>('User', userSchema);

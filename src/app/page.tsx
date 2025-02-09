@@ -3,7 +3,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 import Hero from '../../Components/Hero/Hero';
 import About from '../../Components/About/About';
 import Footer from '../../Components/Footer/Footer';
-
+import Video from '../../Components/Video/VideoBanner';
 
 const Page = () => {
   return (
@@ -12,6 +12,7 @@ const Page = () => {
       <Navbar />
       <Hero />
       <About />
+      <Video />
       <Footer />
       
     </div>

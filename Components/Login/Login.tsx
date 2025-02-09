@@ -1,4 +1,6 @@
-import { useState } from 'react';
+'use client'; // Add this directive at the top
+
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,7 +10,13 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isClient, setIsClient] = useState(false); // Track if we're on the client side
   const router = useRouter();
+
+  useEffect(() => {
+    // This ensures that we are only using localStorage on the client side
+    setIsClient(true);
+  }, []);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -31,9 +39,17 @@ const Login: React.FC = () => {
       if (response.ok) {
         toast.success(result.message);
 
-        // Store user data in localStorage and redirect to Profile page
-        localStorage.setItem('user', JSON.stringify(result.user));
-        router.push('/Profile');
+        // Store user data, including role, in localStorage only on the client side
+        if (isClient) {
+          localStorage.setItem('user', JSON.stringify(result.user));
+        }
+
+        // Redirect to Profile page (or Dashboard if admin)
+        if (result.user.role === 'admin') {
+          router.push('/');
+        } else {
+          router.push('/Profile');
+        }
       } else {
         toast.error(result.message);
       }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Tryon.css';
 
 const Tryon: React.FC = () => {
@@ -8,6 +10,7 @@ const Tryon: React.FC = () => {
   const [mainImage, setMainImage] = useState<string | null>(null);
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   useEffect(() => {
     const user = localStorage.getItem('user'); // Check if user is logged in
@@ -44,17 +47,25 @@ const Tryon: React.FC = () => {
 
   const handleTryOnClick = () => {
     if (selectedStyle) {
-      router.push({
-        pathname: '/output',
-        query: { selectedStyle, mainImage },
-      });
+      setIsGenerating(true);
+      setTimeout(() => {
+        router.push({
+          pathname: '/output',
+          query: { selectedStyle, mainImage },
+        });
+      }, 3000);
     } else {
-      alert('Please select a hairstyle!');
+      toast.error('Please select a hairstyle!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: 'dark',
+      });
     }
   };
-
-  // Cloudinary Base URL (Replace YOUR_CLOUD_NAME with your actual Cloudinary cloud name)
-  const cloudinaryBaseUrl = "https://res.cloudinary.com/dcuarscor/image/upload/";
 
   // Cloudinary Style Image URLs
   const styleImages = [
@@ -66,8 +77,11 @@ const Tryon: React.FC = () => {
 
   return (
     <main className="tryon-wrapper">
+      {/* Toast Notification */}
+      <ToastContainer />
+
       <header>
-        <h1 className="tryon-h1">StyleSync Try-On</h1>
+        <h1 className="tryon-h1"><span className='Name'>StyleSync</span> Try-On</h1>
         <p className="tryon-p">
           Upload your image to try out different styles and find the perfect look!
         </p>
@@ -99,7 +113,7 @@ const Tryon: React.FC = () => {
         </div>
 
         <div className="control-section">
-          <h1 className="tryon-h1">StyleSync Hair Style Changer</h1>
+          <h1 className="tryon-h1"><span className='Name'>StyleSync</span> Hair Style Changer</h1>
           <p className="tryon-p">
             Try different AI hairstyles to find out what suits you best.
           </p>
@@ -121,7 +135,7 @@ const Tryon: React.FC = () => {
               <p className="upload-text">JPEG or PNG files accepted</p>
             </div>
             <button className="try-on-btn" onClick={handleTryOnClick}>
-              Try On
+              {isGenerating ? 'Generating...' : 'Try On'}
             </button>
           </div>
         </div>

@@ -84,14 +84,15 @@ section {
 .login-container p {
     margin-top: 15px;
     font-size: 14px;
+    color: black;
 }
 
 .login-container a {
-    color: #007BFF; /* Consistent blue shade */
+    color: #BC0404; /* Consistent blue shade */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .login-container a:hover {
-    color: #0056b3; /* Subtle hover effect for link */
+    color: #BC0404; /* Subtle hover effect for link */
 }

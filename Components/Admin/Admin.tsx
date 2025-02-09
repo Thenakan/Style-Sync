@@ -1,8 +1,11 @@
+'use client'; // Ensure this component is client-side
+
 import React, { useEffect, useState } from "react";
 import { FaUsers } from 'react-icons/fa'; // Icons for stats
 import { IoIosCut } from 'react-icons/io'; // Scissors icon
 import { toast, ToastContainer } from 'react-toastify'; // Import Toastify
 import 'react-toastify/dist/ReactToastify.css'; // Import Toastify styles
+import { useRouter } from 'next/router'; // For routing
 import styles from "./Admin.module.css";
 
 interface User {
@@ -11,15 +14,31 @@ interface User {
   lastName: string;
   email: string;
   phoneNumber: string;
-  isActive: boolean; // New property for active/inactive status
+  isActive: boolean;
+  role: 'admin' | 'user';
 }
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  
+  const [showDropdown, setShowDropdown] = useState<string | null>(null); // Manage dropdown visibility
+  const [selectedRole, setSelectedRole] = useState<'admin' | 'user'>('user'); // Store selected role
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false); // Track user authentication
+  const router = useRouter();
+
   const totalHairstyles = 15;
+
+  useEffect(() => {
+    // Check if the user is logged in and has admin role
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if (!user || user.role !== 'admin') {
+      // If not logged in or not an admin, redirect to login
+      router.push('/login');
+    } else {
+      setIsAuthenticated(true);
+    }
+  }, [router]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -32,17 +51,47 @@ const AdminDashboard = () => {
         setUsers(data);
       } catch (err: any) {
         setError(err.message || "Failed to fetch users");
-        toast.error(err.message || "Failed to fetch users"); // Show error toast
+        toast.error(err.message || "Failed to fetch users");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchUsers();
-  }, []);
+    if (isAuthenticated) {
+      fetchUsers();
+    }
+  }, [isAuthenticated]);
 
   const handleEdit = (userId: string) => {
+    // Toggle dropdown for selected user
+    setShowDropdown(showDropdown === userId ? null : userId);
     toast.info(`Editing user with ID: ${userId}`);
+  };
+
+  const handleRoleChange = async (userId: string) => {
+    try {
+      const response = await fetch("/api/role", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: userId, role: selectedRole }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update user role");
+      }
+
+      const updatedUser = await response.json();
+      setUsers(users.map((user) =>
+        user._id === userId ? { ...user, role: updatedUser.user.role } : user
+      ));
+
+      toast.success("User role updated successfully");
+      setShowDropdown(null); // Close the dropdown after updating
+    } catch (err: any) {
+      toast.error(err.message || "An error occurred while updating the role");
+    }
   };
 
   const handleDelete = async (userId: string) => {
@@ -54,18 +103,17 @@ const AdminDashboard = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ id: userId }), // Sending the userId in the body
+          body: JSON.stringify({ id: userId }),
         });
-  
+
         if (!response.ok) {
           throw new Error("Failed to delete user");
         }
-  
-        // Update the UI after deletion
+
         setUsers(users.filter((user) => user._id !== userId));
-        toast.success("User deleted successfully"); // Show success toast
+        toast.success("User deleted successfully");
       } catch (err: any) {
-        toast.error(err.message || "An error occurred while deleting the user"); // Show error toast
+        toast.error(err.message || "An error occurred while deleting the user");
       }
     }
   };
@@ -82,7 +130,6 @@ const AdminDashboard = () => {
         <section className={styles.overviewSection}>
           <h2 className={styles.overviewTitle}>📊 Overview</h2>
           <div className={styles.statsGrid}>
-            {/* Quick Stats Cards */}
             <div className={styles.statCard}>
               <FaUsers size={40} color="#BC0404" />
               <h3 className={styles.statValue}>{users.length}</h3>
@@ -96,7 +143,6 @@ const AdminDashboard = () => {
           </div>
         </section>
 
-        {/* User Management Section */}
         <section className={styles.userManagementSection}>
           <h2 className={styles.userManagementTitle}>👥 User Management</h2>
           <table className={styles.userManagementTable}>
@@ -125,6 +171,15 @@ const AdminDashboard = () => {
                     >
                       ✏️ Edit
                     </button>
+                    {showDropdown === user._id && (
+                      <div className={styles.dropdown}>
+                        <button onClick={() => setSelectedRole('admin')}>Admin</button>
+                        <button onClick={() => setSelectedRole('user')}>User</button>
+                        <button onClick={() => handleRoleChange(user._id)}>
+                          Save Role
+                        </button>
+                      </div>
+                    )}
                     <button
                       className={styles.deleteButton}
                       onClick={() => handleDelete(user._id)}
@@ -139,7 +194,6 @@ const AdminDashboard = () => {
         </section>
       </div>
 
-      {/* Toast Container */}
       <ToastContainer />
     </div>
   );
