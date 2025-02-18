@@ -48,7 +48,7 @@ const Login: React.FC = () => {
         if (result.user.role === 'admin') {
           router.push('/');
         } else {
-          router.push('/Profile');
+          router.push('/');
         }
       } else {
         toast.error(result.message);
