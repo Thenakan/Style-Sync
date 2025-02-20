@@ -10,7 +10,6 @@
 body, html {
   height: 100%;
   font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-
 }
 
 .heroSection {
@@ -63,23 +62,23 @@ body, html {
   padding: 15px 30px;
   font-size: 18px;
   color: white;
-  background-color: #000; /* Dark gray background for a modern look */
-  border: 2px solid #BC0404; /* Red border for contrast */
-  border-radius: 50px; /* Modern rounded corners */
+  background-color: #000;
+  border: 2px solid #BC0404;
+  border-radius: 50px;
   cursor: pointer;
   outline: none;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0 30px rgba(188, 4, 4, 0.7), 0 0 60px rgba(188, 4, 4, 0.6), 0 0 90px rgba(188, 4, 4, 0.5); /* Enhanced glowing red shadows */
+  box-shadow: 0 0 30px rgba(188, 4, 4, 0.7), 0 0 60px rgba(188, 4, 4, 0.6), 0 0 90px rgba(188, 4, 4, 0.5);
   transition: 0.3s ease-in-out, box-shadow 0.5s ease;
-  animation: pulseGlow 1.5s ease-in-out infinite; /* Smooth pulse effect */
+  animation: pulseGlow 1.5s ease-in-out infinite;
 }
 
 .glowingButton:hover {
-  background-color: #BC0404; /* Red background on hover */
+  background-color: #BC0404;
   color: white;
-  box-shadow: 0 0 80px rgba(188, 4, 4, 0.9), 0 0 120px rgba(188, 4, 4, 0.8), 0 0 180px rgba(188, 4, 4, 0.7); /* Stronger glowing effect */
-  transform: translateY(-6px) scale(1.1); /* Button moves up and scales slightly more for hover */
+  box-shadow: 0 0 80px rgba(188, 4, 4, 0.9), 0 0 120px rgba(188, 4, 4, 0.8), 0 0 180px rgba(188, 4, 4, 0.7);
+  transform: translateY(-6px) scale(1.1);
 }
 
 @keyframes pulseGlow {
@@ -94,7 +93,6 @@ body, html {
   }
 }
 
-/* Animation to switch between two background images */
 @keyframes switchBackground {
   0% {
     background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230496/Hero_gimy8s.jpg');
@@ -104,5 +102,42 @@ body, html {
   }
   100% {
     background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230495/hero3_pikoe3.jpg');
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroSection h1 {
+    font-size: 2.5rem;
+  }
+  .heroSection p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection h1 {
+    font-size: 2rem;
+  }
+  .heroSection p {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+  .glowingButton {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection h1 {
+    font-size: 1.8rem;
+  }
+  .heroSection p {
+    font-size: 1rem;
+  }
+  .glowingButton {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }

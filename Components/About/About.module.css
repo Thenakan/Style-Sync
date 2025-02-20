@@ -1,86 +1,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 .aboutSection {
-    background-color: black; /* Black background */
-    color: white; /* White text for contrast */
-    height: 100vh; /* Full viewport height */
-    display: flex; /* Flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center; /* Center text content */
-    padding: 20px; /* Padding for smaller screens */
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-    font-size: 2rem; /* Set default font size */
-    
-    position: relative; /* Needed for the border animation */
-    overflow: hidden; /* Hide the part of the border that's outside the section */
-  }
-  
-  .aboutSection::before {
-    content: ''; /* Create an empty element for the border */
-    position: absolute; /* Position it relative to the section */
+    background-color: black;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.aboutSection::before {
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border: 4px solid #BC0404; /* Red border */
-    border-radius: 10px; /* Rounded corners for the border */
-    animation: borderAnimation 3s infinite; /* Animation for border */
-  }
-  
-  @keyframes borderAnimation {
+    border: 4px solid #BC0404;
+    border-radius: 10px;
+    animation: borderAnimation 3s infinite;
+}
+
+@keyframes borderAnimation {
     0% {
-      transform: scaleX(0); /* Start with no visible border */
-      transform-origin: left; /* Start from the left */
+        transform: scaleX(0);
+        transform-origin: left;
     }
     50% {
-      transform: scaleX(1); /* Full border width */
-      transform-origin: right; /* End on the right */
+        transform: scaleX(1);
+        transform-origin: right;
     }
     100% {
-      transform: scaleX(0); /* Shrink back to no visible border */
-      transform-origin: left; /* Return to the left */
+        transform: scaleX(0);
+        transform-origin: left;
     }
-  }
-  
-  .content {
-    max-width: 800px; /* Limit text width for readability */
-    
-  }
-  
-  .h1Text {
-    font-size: 3.9rem; /* Larger font size for the heading */
-    margin-bottom: 150px; /* Space below the heading */
-  }
-  
-  .styleSyncName {
-    color: #BC0404; /* Red color for 'StyleSync' */
-  }
-  
-  .pText {
-    font-size: 1.40rem; /* Medium font size for paragraphs */
-    line-height: 1.6; /* Improve line spacing for readability */
-    margin-bottom: 20px; /* Space below each paragraph */
-  }
-  
-  .container {
-    margin-top: 20px; /* Space between content and button */
-  }
-  
-  .glowingButton {
-    background-color: #BC0404; /* Red color for the button */
-    color: white; /* White text for the button */
-    border: none; /* No border */
-    padding: 12px 24px; /* Increase button padding for a better look */
-    font-size: 1.2rem; /* Slightly larger font size for the button text */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    box-shadow: 0 0 15px rgba(188, 4, 4, 0.8); /* Glowing effect */
-    transition: all 0.3s ease; /* Smooth hover transition */
-  }
-  
-  .glowingButton:hover {
-    background-color: #BC0404; /* Darker red for hover effect */
-    box-shadow: 0 0 25px rgba(188, 4, 4, 0.8); /* Stronger glow on hover */
-  }
-  
+}
+
+.content {
+    max-width: 800px;
+    padding: 10px;
+}
+
+.h1Text {
+    font-size: 3.9rem;
+    margin-bottom: 150px;
+}
+
+.styleSyncName {
+    color: #BC0404;
+}
+
+.pText {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.glowingButton {
+    background-color: #BC0404;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(188, 4, 4, 0.8);
+    transition: all 0.3s ease;
+}
+
+.glowingButton:hover {
+    background-color: #BC0404;
+    box-shadow: 0 0 25px rgba(188, 4, 4, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .h1Text {
+        font-size: 3rem;
+        margin-bottom: 100px;
+    }
+    .pText {
+        font-size: 1.2rem;
+    }
+    .glowingButton {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .aboutSection {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .h1Text {
+        font-size: 2.5rem;
+        margin-bottom: 80px;
+    }
+    .pText {
+        font-size: 1.1rem;
+    }
+    .glowingButton {
+        font-size: 1rem;
+        padding: 10px 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .h1Text {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+    .pText {
+        font-size: 1rem;
+    }
+    .glowingButton {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}

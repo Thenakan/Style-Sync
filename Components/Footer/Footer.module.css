@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
-
 /* Footer */
 body {
     margin: 0;
     font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-
 }
 
 .footer {
@@ -168,5 +166,49 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footerContact {
+        margin-right: 0;
+    }
+    .footerBrand img {
+        width: 150px;
+    }
+    .socialIcons img {
+        width: 35px;
+        height: 35px;
+    }
+    .footerLinks h3, .footerContact h3 {
+        font-size: 24px;
+    }
+    .footerLinks ul {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footerBrand img {
+        width: 120px;
+    }
+    .socialIcons img {
+        width: 30px;
+        height: 30px;
+    }
+    .footerLinks h3, .footerContact h3 {
+        font-size: 20px;
+    }
+    .footerLinks ul {
+        font-size: 16px;
+    }
+    .footerBottom p {
+        font-size: 14px;
     }
 }
