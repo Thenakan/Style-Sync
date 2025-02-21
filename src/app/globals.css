@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --primary-color: #8B0000;
+  --text-color: #ffffff;
+  --input-bg: rgba(0, 0, 0, 0.1);
+  --input-border: rgba(255, 255, 255, 0.15);
+  --input-focus: rgba(0, 0, 0, 0.3);
+  --button-color: #FF0000;
+  --button-hover: #CC0000;
+  --card-bg: rgba(0, 0, 0, 0.07);
+  --hover-scale: 1.05;
+  --transition-duration: 0.3s;
+  --shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
 
 
 /* :root {

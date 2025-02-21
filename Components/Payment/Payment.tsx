@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { toast, ToastContainer } from 'react-toastify';  // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css';  // Import styles for Toastify
 import styles from './Payment.module.css';
+import '@/app/globals.css';
 
 const Payment: React.FC = () => {
   const router = useRouter();
