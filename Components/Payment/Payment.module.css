@@ -15,7 +15,7 @@
     font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font here */
 }
 
-:root {
+:local(:root){
     --primary-color: #8B0000;
     --text-color: #ffffff;
     --input-bg: rgba(0, 0, 0, 0.1);
