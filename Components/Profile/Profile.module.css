@@ -1,14 +1,5 @@
+/* Global Styles (no changes to body, html, and *) */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
-
-/* Reset and Global Styles */
-body, html {
-    height: 100%;
-    margin: 0;
-    background-color: black;
-    color: white;
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-    box-sizing: border-box; /* Universal box-sizing for consistency */
-}
 
 /* Profile Container */
 .profileContainer {
@@ -20,6 +11,8 @@ body, html {
     padding: 20px;
     background-color: black;
     color: white;
+    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
+    box-sizing: border-box; /* Universal box-sizing for consistency */
 }
 
 /* Header Section */
@@ -179,7 +172,7 @@ body, html {
     transform: scale(0.95);
 }
 
-
+/* Logout Button */
 .logoutButton {
     background-color: #BC0404; /* Red background */
     color: white; /* White text */
@@ -189,15 +182,14 @@ body, html {
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Change cursor to pointer */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
-  }
-  
-  .logoutButton:hover {
+}
+
+.logoutButton:hover {
     background-color: #BC0404; /* Darker red on hover */
     transform: scale(1.05); /* Slightly enlarge the button on hover */
-  }
-  
-  .logoutButton:focus {
+}
+
+.logoutButton:focus {
     outline: none; /* Remove outline on focus */
     box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.5); /* Add a glowing effect on focus */
-  }
-  
+}

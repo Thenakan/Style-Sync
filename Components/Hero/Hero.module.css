@@ -5,14 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body, html {
-  height: 100%;
-  font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-}
-
-.heroSection {
   position: relative;
   height: 100vh;
   background-image: url('https://res.cloudinary.com/dcuarscor/image/upload/v1738230496/Hero_gimy8s.jpg'); /* Initial background image */
@@ -24,6 +16,7 @@ body, html {
   color: white;
   text-align: center;
   animation: switchBackground 10s ease-in-out infinite; /* Animation to switch between images */
+  font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
 }
 
 .text {

@@ -1,10 +1,20 @@
 /* Import Space Grotesk Font */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
-body {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-
+.pageWrapper {
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem;
+    background: black;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    animation: fadeIn var(--transition-duration) ease-in;
+    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font here */
 }
+
 :root {
     --primary-color: #8B0000;
     --text-color: #ffffff;
@@ -37,19 +47,6 @@ body {
     50% {
         transform: scale(1.05);
     }
-}
-
-.pageWrapper {
-    min-height: 100vh;
-    width: 100%;
-    padding: 1rem;
-    background: black;
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    animation: fadeIn var(--transition-duration) ease-in;
 }
 
 .paymentWrapper {

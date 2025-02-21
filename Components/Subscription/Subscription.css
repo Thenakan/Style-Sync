@@ -1,15 +1,7 @@
 /* Import Space Grotesk Font */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-
-}
-
-/* Add a class to the wrapper instead of applying styles directly to the body */
+/* Applied Space Grotesk font to pricing section wrapper */
 .pricing-section-wrapper {
     min-height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -18,9 +10,11 @@
     background-position: center;
     background-attachment: fixed;
     color: white;
+    font-family: 'Space Grotesk', sans-serif;
     animation: fadeIn 1.5s ease-in-out, parallax 15s infinite linear;
 }
 
+/* Apply padding and box-sizing only for pricing section */
 .pricing-section {
     min-height: calc(100vh - 60px);
     display: flex;
@@ -41,7 +35,7 @@
     animation: fadeIn 1.5s ease-in-out, textGlow 2s infinite alternate;
 }
 
-/* .pricing-options and other classes remain the same */
+/* Pricing options */
 .pricing-options {
     display: flex;
     justify-content: center;
