@@ -11,7 +11,7 @@ interface UserType {
   phoneNumber: string;
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   try {
     // Connect to the database
     await dbConnect();
