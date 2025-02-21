@@ -3,7 +3,7 @@ import connectToDatabase from "../../../../lib/db";
 import User from "../models/UserRegister";
 
 // Handle GET requests (Fetch all users)
-export const GET = async () => {
+export const GET = async (req: NextRequest) => {
   try {
     await connectToDatabase();
     const users = await User.find();
@@ -44,14 +44,11 @@ export const POST = async (req: NextRequest) => {
 };
 
 // Handle GET requests for a single user (Fetch a user by ID)
-export const GET_BY_ID = async (req: NextRequest) => {
+// Use dynamic routing for the user ID
+export const GET_BY_ID = async (req: NextRequest, { params }: { params: { id: string } }) => {
   try {
     await connectToDatabase();
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
-    if (!id) {
-      return NextResponse.json({ error: "User ID is required" }, { status: 400 });
-    }
+    const id = params.id;
     const user = await User.findById(id);
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
