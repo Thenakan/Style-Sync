@@ -22,12 +22,19 @@ export const PATCH = async (req: NextRequest) => {
       { message: "User updated successfully", updatedUser },
       { status: 200 }
     );
-  } catch (error) {
-    const errorMessage = (error as any).message;
-    console.error("Error updating user:", errorMessage);
-    return NextResponse.json(
-      { message: "Failed to update user.", error: errorMessage },
-      { status: 500 }
-    );
+  } catch (error: unknown) { // specify the error type as unknown
+    if (error instanceof Error) { // check if error is an instance of Error
+      console.error("Error updating user:", error.message);
+      return NextResponse.json(
+        { message: "Failed to update user.", error: error.message },
+        { status: 500 }
+      );
+    } else {
+      console.error("Unknown error:", error);
+      return NextResponse.json(
+        { message: "Failed to update user.", error: "Unknown error" },
+        { status: 500 }
+      );
+    }
   }
 };

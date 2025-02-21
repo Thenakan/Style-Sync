@@ -32,7 +32,8 @@ export async function POST(req: Request) {
     // If login is successful, return user data (you can also send a JWT token)
     return NextResponse.json({ message: 'Login successful', user }, { status: 200 });
 
-  } catch (error: any) {
+  } catch (error: unknown) {  // Use 'unknown' instead of 'any'
+    console.error(error);  // Log the error for debugging
     return NextResponse.json({ message: 'Server error, please try again later' }, { status: 500 });
   }
 }

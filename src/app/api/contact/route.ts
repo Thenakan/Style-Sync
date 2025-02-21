@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { Contact } from '../models/contact';
 
+// Define the response data type
 type ResponseData = {
   message: string;
 };
@@ -38,20 +39,23 @@ const sendEmail = (contact: Contact) => {
 // POST method handler
 export async function POST(req: NextRequest) {
   try {
+    // Parse the incoming request body to extract contact details
     const { name, email, phone, subject, message }: Contact = await req.json();
 
     // Validate form data (you can add more validation here if needed)
     if (!name || !email || !message) {
-      return NextResponse.json({ message: 'Name, Email, and Message are required.' }, { status: 400 });
+      // Return a 400 status with an error message if validation fails
+      return NextResponse.json<ResponseData>({ message: 'Name, Email, and Message are required.' }, { status: 400 });
     }
 
-    // Send email
+    // Send the email
     await sendEmail({ name, email, phone, subject, message });
 
-    // Respond back to the client
-    return NextResponse.json({ message: 'Form submitted successfully!' }, { status: 200 });
+    // Return a success message
+    return NextResponse.json<ResponseData>({ message: 'Form submitted successfully!' }, { status: 200 });
   } catch (error) {
+    // Log the error and return a 500 status with an error message
     console.error('Error handling form submission:', error);
-    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json<ResponseData>({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
