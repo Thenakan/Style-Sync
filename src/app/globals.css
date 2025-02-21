@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global styles */
+body, html {
+  height: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+
 /* :root {
   --background: #ffffff;
   --foreground: #171717;
