@@ -44,30 +44,30 @@ export const POST = async (req: NextRequest) => {
 };
 
 // Handle GET requests for a single user (Fetch a user by ID)
-export const GET_BY_ID = async (req: NextRequest) => {
-  try {
-    await connectToDatabase();
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get("id");
-    if (!id) {
-      return NextResponse.json({ error: "User ID is required" }, { status: 400 });
-    }
-    const user = await User.findById(id);
-    if (!user) {
-      return NextResponse.json({ error: "User not found" }, { status: 404 });
-    }
-    return NextResponse.json(user, { status: 200 });
-  } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.error("Error fetching user:", error.message);
-      return NextResponse.json(
-        { message: "Failed to fetch user.", error: error.message },
-        { status: 500 }
-      );
-    }
-    return NextResponse.json({ message: "An unknown error occurred." }, { status: 500 });
-  }
-};
+// export const GET_BY_ID = async (req: NextRequest) => {
+//   try {
+//     await connectToDatabase();
+//     const { searchParams } = new URL(req.url);
+//     const id = searchParams.get("id");
+//     if (!id) {
+//       return NextResponse.json({ error: "User ID is required" }, { status: 400 });
+//     }
+//     const user = await User.findById(id);
+//     if (!user) {
+//       return NextResponse.json({ error: "User not found" }, { status: 404 });
+//     }
+//     return NextResponse.json(user, { status: 200 });
+//   } catch (error: unknown) {
+//     if (error instanceof Error) {
+//       console.error("Error fetching user:", error.message);
+//       return NextResponse.json(
+//         { message: "Failed to fetch user.", error: error.message },
+//         { status: 500 }
+//       );
+//     }
+//     return NextResponse.json({ message: "An unknown error occurred." }, { status: 500 });
+//   }
+// };
 
 // Handle PATCH requests (Update a user)
 export const PATCH = async (req: NextRequest) => {
