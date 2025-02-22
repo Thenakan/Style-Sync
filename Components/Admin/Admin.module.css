@@ -1,11 +1,9 @@
-
 /* Import Space Grotesk Font */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 /* Global Font Import */
 .adminDashboardContainer {
   font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
-
   display: flex;
   flex-direction: column;
   height: 100vh; /* Ensure full screen height */
@@ -235,4 +233,131 @@
 
 .dropdown button:hover {
   background-color: #BC0404;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .fullScreenLayout {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .overviewSection,
+  .userManagementSection {
+    flex: 1;
+    width: 100%;
+  }
+
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+
+  .overviewTitle {
+    font-size: 1.8rem;
+  }
+
+  .statValue {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 1rem;
+  }
+
+  .tableHeader {
+    font-size: 1rem;
+  }
+
+  .tableData {
+    font-size: 0.9rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .overviewTitle {
+    font-size: 1.5rem;
+  }
+
+  .statValue {
+    font-size: 1.8rem;
+  }
+
+  .statLabel {
+    font-size: 0.9rem;
+  }
+
+  .tableHeader {
+    font-size: 0.9rem;
+  }
+
+  .tableData {
+    font-size: 0.8rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  .fullScreenLayout {
+    padding: 10px;
+  }
+
+  .overviewSection,
+  .userManagementSection {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+
+  .overviewTitle {
+    font-size: 1.2rem;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+
+  .tableHeader {
+    font-size: 0.8rem;
+  }
+
+  .tableData {
+    font-size: 0.7rem;
+  }
+
+  .editButton,
+  .deleteButton {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+
+  .fullScreenLayout {
+    padding: 5px;
+  }
+
+  .overviewSection,
+  .userManagementSection {
+    padding: 10px;
+  }
 }

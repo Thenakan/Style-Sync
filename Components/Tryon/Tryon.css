@@ -2,82 +2,80 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 .tryon-wrapper {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
+    font-family: 'Space Grotesk', sans-serif;
     background-color: black;
     color: white;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-    height: 100%; /* Ensure wrapper fills the viewport height */
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 1rem;
 }
 
 .tryon-container {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     display: flex;
-    flex-direction: row; /* Arrange sections side by side */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Align vertically */
-    padding: 2rem 4rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
     gap: 3rem;
-    max-width: 1200px; /* Limit maximum width for better centering */
+    max-width: 1200px;
     width: 100%;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
+/* Image Section */
 .image-section {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     flex: 2;
     display: flex;
-    flex-direction: column; /* Stack the main image and grid */
-    align-items: center; /* Center horizontally */
+    flex-direction: column;
+    align-items: center;
     gap: 2rem;
     height: auto;
-    max-width: 700px; /* Add responsive width */
+    max-width: 700px;
     width: 100%;
 }
 
 .main-image {
-    width: 100%; /* Make responsive */
-    max-width: 400px; /* Limit the size for larger screens */
+    width: 100%;
+    max-width: 400px;
     height: auto;
 }
 
 .image-placeholder {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     width: 100%;
-    height: 400px; /* Fixed height for consistent appearance */
+    height: 400px;
     background: linear-gradient(45deg, #2a2a2a, #333333);
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex; /* Center the image content */
+    display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Crop overflowing content */
+    overflow: hidden;
 }
 
 .image-placeholder img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Scale and crop */
+    object-fit: cover;
 }
 
+/* Style Grid */
 .style-grid {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Change from 2 to 4 */
+    grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     width: 100%;
-    max-width: 400px; /* Ensure grid does not exceed image section width */
+    max-width: 400px;
 }
 
 .small-image {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     background: linear-gradient(45deg, #2a2a2a, #333333);
     border-radius: 8px;
-    aspect-ratio: 1; /* Keep square aspect ratio */
+    aspect-ratio: 1;
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
@@ -88,26 +86,26 @@
 }
 
 .small-image.selected {
-    border: 3px solid #ff6347; /* Red border to show the selected style */
-    box-shadow: 0 0 10px rgba(255, 99, 71, 0.6); /* Optional: Glow effect */
-    transform: scale(1.1); /* Slightly enlarge the selected image */
+    border: 3px solid #ff6347;
+    box-shadow: 0 0 10px rgba(255, 99, 71, 0.6);
+    transform: scale(1.1);
 }
 
 .small-image:hover {
-    transform: scale(1.05); /* Enlarge slightly on hover */
+    transform: scale(1.05);
 }
 
 .small-image img {
     border-radius: 8px;
 }
 
+/* Control Section */
 .control-section {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     flex: 1;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the controls horizontally */
+    align-items: center;
     gap: 2rem;
     max-width: 450px;
     width: 100%;
@@ -118,7 +116,6 @@
 }
 
 .tryon-h1 {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     font-size: 2.5rem;
     margin-bottom: 1rem;
     background: linear-gradient(45deg, #ffffff, #cccccc);
@@ -129,15 +126,14 @@
 }
 
 .tryon-p {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     color: #a0a0a0;
     font-size: 1.1rem;
     line-height: 1.6;
     text-align: center;
 }
 
+/* Upload Section */
 .upload-section {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     width: 100%;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.05);
@@ -147,7 +143,6 @@
 }
 
 .upload-box {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     background: rgba(255, 255, 255, 0.02);
     padding: 3rem 2rem;
     border-radius: 12px;
@@ -157,14 +152,13 @@
 }
 
 .image-icon {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     font-size: 3rem;
     margin-bottom: 1.5rem;
     color: #bc0404;
 }
 
+/* Responsive Button */
 .upload-btn, .try-on-btn {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     background: linear-gradient(45deg, #bc0404, #bc0404);
     color: white;
     border: none;
@@ -176,21 +170,88 @@
     letter-spacing: 1px;
     font-weight: 600;
     transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
 }
 
 .upload-btn:hover, .try-on-btn:hover {
     transform: scale(1.05);
-    background: linear-gradient(45deg, #bc0404, #bc0404);
+    background: linear-gradient(45deg, #d30000, #bc0404);
 }
 
 .upload-text {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     color: #888;
     font-size: 0.9rem;
     margin: 0;
 }
 
 .Name {
-    font-family: 'Space Grotesk', sans-serif; /* Applied Space Grotesk font */
     color: #bc0404;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    .tryon-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.5rem;
+        gap: 2rem;
+    }
+    
+    .image-section, .control-section {
+        max-width: 100%;
+    }
+
+    .style-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tryon-h1 {
+        font-size: 2rem;
+    }
+
+    .tryon-p {
+        font-size: 1rem;
+    }
+
+    .upload-btn, .try-on-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        max-width: 250px;
+    }
+
+    .image-placeholder {
+        height: 300px;
+    }
+
+    .style-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tryon-h1 {
+        font-size: 1.8rem;
+    }
+
+    .tryon-p {
+        font-size: 0.9rem;
+    }
+
+    .upload-btn, .try-on-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+
+    .image-placeholder {
+        height: 250px;
+    }
+
+    .style-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
