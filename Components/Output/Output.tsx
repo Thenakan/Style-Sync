@@ -36,7 +36,7 @@ const Output = () => {
         <div className="output-main-preview">
           {styledImage ? (
             <Image
-              src="https://res.cloudinary.com/dcuarscor/image/upload/v1738985528/Screenshot_from_2025-02-08_09-01-34_j0won9.png"
+              src="https://res.cloudinary.com/dcuarscor/image/upload/v1740365209/human_error_stop_400_nr20hi.png"
               alt="Styled preview"
               width={350} // Medium size width
               height={350} // Medium size height
